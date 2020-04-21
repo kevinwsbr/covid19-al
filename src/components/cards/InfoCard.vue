@@ -26,7 +26,7 @@ export default {
   color: var(--cardColor);
 }
 .title {
-  margin-bottom: -5px;
+  margin-bottom: -5px; 
 }
 .title > small {
   font-weight: 600;
