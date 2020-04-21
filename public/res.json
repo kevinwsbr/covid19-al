@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Casos confirmados",
+        "color": "#0011aa",
+        "value": 35
+    },
+    {
+        "title": "Óbitos",
+        "color": "#fddaac",
+        "value": 23
+    },
+    {
+        "title": "Letalidade",
+        "color": "#aabbcc",
+        "value": 15
+    }
+]
