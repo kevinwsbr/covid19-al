@@ -4,7 +4,7 @@ const app = express();
 
 const configs = {
     caminho: "dist", //Aqui será definido a pasta de saída onde contém o index.html e os outros arquivos.
-    forcarHTTPS: false, //Defina para true se desejar que o redirecionamento para HTTPS seja forçado (é necessário certificado SSL ativo)
+    forcarHTTPS: false, //Defina para true se desejar que o redirecionamento para HTTPS seja forçado (é necessário certificado SSL
     port: process.env.PORT || 3000
 }
 
