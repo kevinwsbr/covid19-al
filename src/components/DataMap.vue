@@ -1,7 +1,7 @@
 <template>
   <div class="map">
-    <div>
-      <span v-if="loading">Loading...</span>
+    <div v-if="loading" class="map-alert text-center">
+      <span>Aguarde, carregando o mapa...</span>
     </div>
     <l-map :zoom="zoom" :center="center" style="height: 500px; width: 100%">
       <l-tile-layer :url="url" :attribution="attribution" />
@@ -83,10 +83,7 @@ export default {
       div.innerHTML = "";
 
       div.innerHTML +=
-          '<i style="background:' +
-          this.getColor(0, type) +
-          '"></i> ' +
-          "0<br>";
+        '<i style="background:' + this.getColor(0, type) + '"></i> ' + "0<br>";
 
       for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -210,6 +207,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 .legend {
   line-height: 18px;
   color: #555;

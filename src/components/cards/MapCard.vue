@@ -78,10 +78,32 @@ h2 {
   }
 }
 
+.map-alert {
+  height: 400px;
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  z-index: 5;
+  width: 100%;
+  position: absolute;
+
+  span {
+    line-height: 400px;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+}
+
 .leaflet-container {
+  z-index: 3;
   height: 400px !important;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+}
+
+.btn-confirmed,
+.btn-deaths {
+  font-weight: 900 !important;
 }
 
 @media screen and (max-width: 576px) {
@@ -92,6 +114,15 @@ h2 {
   .btn-deaths {
     float: right;
   }
+
+  .map-alert {
+  height: 360px;
+
+  span {
+    line-height: 360px;
+    font-size: 0.9rem;
+  }
+}
 }
 
 .btn-confirmed {
