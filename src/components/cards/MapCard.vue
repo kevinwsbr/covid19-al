@@ -79,24 +79,36 @@ h2 {
 }
 
 .leaflet-container {
-    height: 400px !important;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+  height: 400px !important;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+  .leaflet-container {
+    height: 360px !important;
+  }
+  .btn-confirmed,
+  .btn-deaths {
+    float: right;
+  }
 }
 
 .btn-confirmed {
   background: #f49e39 !important;
   border-color: #e09137 !important;
+  font-size: 0.75rem !important;
   &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(244, 158, 57, .5) !important;
+    box-shadow: 0 0 0 0.2rem rgba(244, 158, 57, 0.5) !important;
   }
 }
 
 .btn-deaths {
   background: #3597db !important;
   border-color: #328ccc !important;
+  font-size: 0.75rem !important;
   &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(53, 151, 219, .5) !important;
+    box-shadow: 0 0 0 0.2rem rgba(53, 151, 219, 0.5) !important;
   }
 }
 </style>

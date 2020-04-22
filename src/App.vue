@@ -44,11 +44,11 @@
         <b-row>
           <b-col class="text-center">
             <span
-              class="d-block mb-2"
-            >Fonte: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas</span>
+              class="d-block mb-3"
+            >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas</span>
             <span class="d-block">
               Painel desenvolvido por
-              <a href="https://kevinws.com">Kevin Washington</a>, v1.0
+              <a href="https://kevinws.com">Kevin Washington</a>, v1.0.1
             </span>
           </b-col>
         </b-row>
@@ -98,14 +98,6 @@ export default {
           color: "#9d5cb6",
           value: "9%"
         }
-      ],
-      items: [
-        { Cidade: "Maceió", Confirmados: 30, Óbitos: 5, Letalidade: 30 / 5 },
-        { Cidade: "Maceió", Confirmados: 30, Óbitos: 5, Letalidade: 30 / 5 },
-        { Cidade: "Maceió", Confirmados: 30, Óbitos: 5, Letalidade: 30 / 5 },
-        { Cidade: "Maceió", Confirmados: 30, Óbitos: 5, Letalidade: 30 / 5 },
-        { Cidade: "Maceió", Confirmados: 30, Óbitos: 5, Letalidade: 30 / 5 },
-        { Cidade: "Maceió", Confirmados: 30, Óbitos: 5, Letalidade: 30 / 5 }
       ]
     };
   },

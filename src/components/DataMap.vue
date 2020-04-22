@@ -82,6 +82,12 @@ export default {
 
       div.innerHTML = "";
 
+      div.innerHTML +=
+          '<i style="background:' +
+          this.getColor(0, type) +
+          '"></i> ' +
+          "0<br>";
+
       for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
           '<i style="background:' +
