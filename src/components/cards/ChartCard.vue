@@ -106,9 +106,7 @@ export default {
 </script>
 
 <style>
-@media screen and (max-width: 576px) {
-  #line-chart {
-    height: 250px;
-  }
+#line-chart {
+  height: 300px !important;
 }
 </style>

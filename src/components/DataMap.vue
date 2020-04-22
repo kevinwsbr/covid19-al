@@ -225,7 +225,7 @@ export default {
 }
 .legend {
   div {
-    margin: 5px;
+    margin: 3px;
   }
 }
 .info {
