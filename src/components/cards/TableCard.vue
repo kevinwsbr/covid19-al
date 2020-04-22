@@ -21,45 +21,84 @@ export default {
           id: 1,
           title: "Casos confirmados",
           color: "#1976D2",
-          value: 171
+          value: 243
         },
         {
           id: 2,
           title: "Óbitos",
           color: "#FF5252",
-          value: 18
+          value: 20
         },
         {
           id: 3,
           title: "Recuperados",
           color: "#009688",
-          value: "30"
+          value: "74"
         },
         {
           id: 4,
           title: "Letalidade",
           color: "#009688",
-          value: "10.5%"
+          value: "8.2%"
         }
       ],
       items: [
-        { Cidade: "Maceió", Confirmados: 184, Óbitos: 13, Letalidade: 6.5 + "%"},
-        { Cidade: "Marechal Dedoro", Confirmados: 6, Óbitos: 1, Letalidade: 16.6 + "%"},
-        { Cidade: "Rio Largo", Confirmados: 5, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Pilar", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Maribondo", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Murici", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Capela", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Maribondo", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Porto Real do Colégio", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Palmeira dos Índios", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Satuba", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "União dos Palmares", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Arapiraca", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 0 + "%"},
-        { Cidade: "São Miguel dos Milagres", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%"},
-        { Cidade: "Ibateguara", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%"},
-        { Cidade: "Boca da Mata", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
+        { Cidade: "Arapiraca", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Boca da Mata",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        { Cidade: "Capela", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Ibateguara",
+          Confirmados: 1,
+          Óbitos: 1,
+          Letalidade: 100 + "%"
+        },
+        {
+          Cidade: "Marechal Dedoro",
+          Confirmados: 6,
+          Óbitos: 1,
+          Letalidade: 16.6 + "%"
+        },
+        { Cidade: "Maribondo", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Murici", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Palmeira dos Índios",
+          Confirmados: 2,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        { Cidade: "Pilar", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Porto Real do Colégio",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        { Cidade: "Rio Largo", Confirmados: 5, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Satuba", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "São Miguel dos Milagres",
+          Confirmados: 1,
+          Óbitos: 1,
+          Letalidade: 100 + "%"
+        },
+        {
+          Cidade: "União dos Palmares",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
+        {
+          Cidade: "Maceió",
+          Confirmados: 213,
+          Óbitos: 14,
+          Letalidade: 6.5 + "%"
+        }
       ]
     };
   },
@@ -82,14 +121,14 @@ export default {
 }
 .map-card,
 .table-card {
-    max-height: 462px;
+  max-height: 462px;
   .card-body {
     padding: 0;
   }
 }
 table {
-    height: 100%;
-    overflow-y: auto;
+  height: 100%;
+  overflow-y: auto;
 }
 thead {
   font-size: 0.8em;
@@ -103,16 +142,16 @@ td {
   vertical-align: top;
   border-top: 1px solid #dee2e6;
   &:first {
-      border-top: 1px solid white;
+    border-top: 1px solid white;
   }
 }
 
 th {
-    //border-top: 1px solid white;
+  //border-top: 1px solid white;
 }
 .b-table-sticky-header {
-    overflow-y: auto;
-    max-height: 395px !important;
+  overflow-y: auto;
+  max-height: 395px !important;
 }
 div::-webkit-scrollbar {
   width: 10px;
@@ -125,7 +164,7 @@ div::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
 }
 div::-webkit-scrollbar-thumb {
-  background-color: var(--thumbBG) ;
+  background-color: var(--thumbBG);
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
 }
@@ -160,7 +199,7 @@ table::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
 }
 table::-webkit-scrollbar-thumb {
-  background-color: var(--thumbBG) ;
+  background-color: var(--thumbBG);
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
 }
