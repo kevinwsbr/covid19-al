@@ -16,32 +16,6 @@ export default {
   name: "TableCard",
   data() {
     return {
-      cards: [
-        {
-          id: 1,
-          title: "Casos confirmados",
-          color: "#1976D2",
-          value: 243
-        },
-        {
-          id: 2,
-          title: "Óbitos",
-          color: "#FF5252",
-          value: 20
-        },
-        {
-          id: 3,
-          title: "Recuperados",
-          color: "#009688",
-          value: "74"
-        },
-        {
-          id: 4,
-          title: "Letalidade",
-          color: "#009688",
-          value: "8.2%"
-        }
-      ],
       items: [
         { Cidade: "Arapiraca", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {

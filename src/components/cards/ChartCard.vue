@@ -48,7 +48,7 @@ export default {
           {
             type: "time",
             time: {
-              parser: "DD/MM/YYYY",
+              parser: "YYYY-MM-DD",
               unit: "day",
               unitStepSize: 2,
               displayFormats: {
@@ -92,7 +92,7 @@ export default {
           vm.chartdata.labels = dates;
           vm.chartdata.datasets[0].data = confirmed;
           vm.chartdata.datasets[1].data = deaths;
-          console.log(dates, confirmed);
+          //console.log(dates, confirmed);
           vm.renderChart(vm.chartdata, vm.options);
         }
       });

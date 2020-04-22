@@ -245,8 +245,8 @@ export default {
 }
 
 @media screen and (max-width: 576px) {
-  .info {
-    padding: 6px 14px;
+  .legend {
+    line-height: 19px;
   }
 }
 </style>

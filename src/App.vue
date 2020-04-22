@@ -78,25 +78,25 @@ export default {
           id: 1,
           title: "Casos confirmados",
           color: "#f49e39",
-          value: 210
+          value: 243
         },
         {
           id: 2,
           title: "Óbitos",
           color: "#3597db",
-          value: 19
+          value: 20
         },
         {
           id: 3,
           title: "Recuperados",
           color: "#58cd72",
-          value: 73
+          value: 74
         },
         {
           id: 4,
           title: "Letalidade",
           color: "#9d5cb6",
-          value: "9%"
+          value: "8.2%"
         }
       ]
     };
