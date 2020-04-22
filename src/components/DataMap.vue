@@ -243,4 +243,10 @@ export default {
   margin: 0 0 5px;
   color: #777;
 }
+
+@media screen and (max-width: 576px) {
+  .info {
+    padding: 6px 14px;
+  }
+}
 </style>

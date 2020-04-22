@@ -80,7 +80,8 @@ h2 {
 
 .map-alert {
   height: 400px;
-  background: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   z-index: 5;
