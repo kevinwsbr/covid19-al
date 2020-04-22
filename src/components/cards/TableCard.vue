@@ -32,11 +32,18 @@ export default {
           Letalidade: 100 + "%"
         },
         {
+          Cidade: "Maceió",
+          Confirmados: 213,
+          Óbitos: 14,
+          Letalidade: 6.5 + "%"
+        },
+        {
           Cidade: "Marechal Dedoro",
           Confirmados: 6,
           Óbitos: 1,
           Letalidade: 16.6 + "%"
         },
+
         { Cidade: "Maribondo", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Murici", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
         {
@@ -66,13 +73,7 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
-        {
-          Cidade: "Maceió",
-          Confirmados: 213,
-          Óbitos: 14,
-          Letalidade: 6.5 + "%"
-        }
+        { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" }
       ]
     };
   },
