@@ -55,7 +55,7 @@ export default {
         { Cidade: "Palmeira dos Índios", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%"},
         { Cidade: "Satuba", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
         { Cidade: "União dos Palmares", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
-        { Cidade: "Arapiraca", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%"},
+        { Cidade: "Arapiraca", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%"},
         { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 0 + "%"},
         { Cidade: "São Miguel dos Milagres", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%"},
         { Cidade: "Ibateguara", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%"},
