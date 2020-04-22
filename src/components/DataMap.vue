@@ -83,15 +83,18 @@ export default {
       div.innerHTML = "";
 
       div.innerHTML +=
-        '<i style="background:' + this.getColor(0, type) + '"></i> ' + "0<br>";
+        '<div><i style="background:' +
+        this.getColor(0, type) +
+        '"></i> ' +
+        "0<br></div>";
 
       for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-          '<i style="background:' +
+          '<div><i style="background:' +
           this.getColor(grades[i] + 1, type) +
           '"></i> ' +
           grades[i] +
-          (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+          (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+" + "</div>");
       }
     },
     updateLegend() {
@@ -207,17 +210,6 @@ export default {
   width: 100%;
   height: 100%;
 }
-
-.legend {
-  line-height: 18px;
-  color: #555;
-}
-.legend i {
-  width: 18px;
-  height: 18px;
-  float: left;
-  margin-right: 8px;
-}
 </style>
 
 <style lang="scss">
@@ -230,6 +222,11 @@ export default {
   height: 18px;
   float: left;
   margin-right: 8px;
+}
+.legend {
+  div {
+    margin: 5px;
+  }
 }
 .info {
   padding: 6px 8px;
