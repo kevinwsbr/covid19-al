@@ -21,6 +21,13 @@ export default {
     return {
       items: [
         { Cidade: "Arapiraca", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
+        {
+          Cidade: "Barra de Santo Antônio",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
         {
           Cidade: "Boca da Mata",
           Confirmados: 1,
@@ -42,9 +49,9 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 288,
+          Confirmados: 280,
           Óbitos: 14,
-          Letalidade: 4.8 + "%"
+          Letalidade: 5 + "%"
         },
         {
           Cidade: "Marechal Dedoro",
@@ -60,6 +67,12 @@ export default {
           Confirmados: 2,
           Óbitos: 0,
           Letalidade: 0 + "%"
+        },
+        {
+          Cidade: "Paripueira",
+          Confirmados: 1,
+          Óbitos: 1,
+          Letalidade: 100 + "%"
         },
         { Cidade: "Pilar", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
