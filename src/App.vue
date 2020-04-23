@@ -6,7 +6,7 @@
           <b-col>
             <img src="./assets/al.svg" />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em 23 de abril às 17:30h</span>
+            <span>Atualizado em 23 de abril às 18:30h</span>
           </b-col>
         </b-row>
       </header>
@@ -90,7 +90,7 @@ export default {
           id: 3,
           title: "Recuperados",
           color: "#58cd72",
-          value: 74
+          value: 75
         },
         {
           id: 4,
@@ -124,7 +124,7 @@ export default {
   }
 }
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.05rem;
 }
@@ -168,7 +168,7 @@ footer {
 </style>
 <style lang="scss">
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.05rem;
 }
@@ -188,7 +188,7 @@ body::-webkit-scrollbar {
 body {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-  background-color: rgba(3, 169, 244, 0.02) !important;
+  background-color: rgba(3, 169, 244, 0.01) !important;
 }
 body::-webkit-scrollbar-track {
   background: var(--scrollbarBG);

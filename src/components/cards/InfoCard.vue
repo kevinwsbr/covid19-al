@@ -43,7 +43,7 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.05rem;
 }

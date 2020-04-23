@@ -32,16 +32,22 @@ export default {
           Letalidade: 100 + "%"
         },
         {
+          Cidade: "Limoeiro de Anadia",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        {
           Cidade: "Maceió",
-          Confirmados: 213,
+          Confirmados: 288,
           Óbitos: 14,
-          Letalidade: 6.5 + "%"
+          Letalidade: 4.8 + "%"
         },
         {
           Cidade: "Marechal Dedoro",
-          Confirmados: 6,
+          Confirmados: 7,
           Óbitos: 1,
-          Letalidade: 16.6 + "%"
+          Letalidade: 14.2 + "%"
         },
 
         { Cidade: "Maribondo", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
@@ -153,7 +159,7 @@ div::-webkit-scrollbar-thumb {
   font-family: "Open Sans", sans-serif;
 }
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.05rem;
 }
