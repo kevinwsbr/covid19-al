@@ -6,7 +6,7 @@
           <b-col>
             <img src="./assets/al.svg" />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em 22 de abril às 20:00h</span>
+            <span>Atualizado em 23 de abril às 09:00h</span>
           </b-col>
         </b-row>
       </header>
@@ -48,7 +48,7 @@
             >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas</span>
             <span class="d-block">
               Painel desenvolvido por
-              <a href="https://kevinws.com">Kevin Washington</a>, v1.0.1
+              <a href="https://kevinws.com">Kevin Washington</a>, v1.0.2
             </span>
           </b-col>
         </b-row>
@@ -188,6 +188,7 @@ body::-webkit-scrollbar {
 body {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  background-color: rgba(3, 169, 244, 0.02) !important;
 }
 body::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
