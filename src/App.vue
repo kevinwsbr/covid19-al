@@ -165,6 +165,11 @@ footer {
     }
   }
 }
+@media screen and (max-width: 576px) {
+  .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+}
 </style>
 <style lang="scss">
 h2 {

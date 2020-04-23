@@ -53,4 +53,9 @@ h2 {
   background: #fff;
   border: 1px solid #dbe9f5;
 }
+@media screen and (max-width: 576px) {
+  .card-body {
+    padding: 0.75rem 1.25rem !important;
+  }
+}
 </style>
