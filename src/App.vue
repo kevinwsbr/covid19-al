@@ -6,7 +6,7 @@
           <b-col>
             <img src="./assets/al.svg" />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em 23 de abril às 09:00h</span>
+            <span>Atualizado em 23 de abril às 17:30h</span>
           </b-col>
         </b-row>
       </header>
@@ -78,13 +78,13 @@ export default {
           id: 1,
           title: "Casos confirmados",
           color: "#f49e39",
-          value: 243
+          value: 324
         },
         {
           id: 2,
           title: "Óbitos",
           color: "#3597db",
-          value: 20
+          value: 22
         },
         {
           id: 3,
@@ -96,7 +96,7 @@ export default {
           id: 4,
           title: "Letalidade",
           color: "#9d5cb6",
-          value: "8.2%"
+          value: "6.8%"
         }
       ]
     };
