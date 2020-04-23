@@ -8,6 +8,9 @@
       </div>
     </template>
     <b-table sticky-header :items="items"></b-table>
+    <p>
+      <b>Nota:</b> a diferença entre os números totais e os números apresentados nesta tabela corresponde aos casos registrados em Alagoas referentes a pessoas que residem em outros estados.
+    </p>
   </b-card>
 </template>
 
@@ -132,7 +135,7 @@ th {
 }
 .b-table-sticky-header {
   overflow-y: auto;
-  max-height: 395px !important;
+  max-height: 350px !important;
 }
 div::-webkit-scrollbar {
   width: 10px;
@@ -183,5 +186,10 @@ table::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
+}
+
+p {
+  font-size: 58%;
+  margin: 1em;
 }
 </style>
