@@ -6,7 +6,7 @@
           <b-col>
             <img src="./assets/al.svg" />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em 23 de abril às 18:30h</span>
+            <span>Atualizado em 23 de abril às 19:30h</span>
           </b-col>
         </b-row>
       </header>
