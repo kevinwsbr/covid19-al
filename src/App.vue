@@ -75,7 +75,7 @@ export default {
     return {
       version: "1.0.3",
       date: "24 de abril",
-      time: "17:30",
+      time: "18:00",
       cards: [
         {
           id: 1,
@@ -91,9 +91,9 @@ export default {
         },
         {
           id: 3,
-          title: "Recuperados (23/04)",
+          title: "Recuperados",
           color: "#58cd72",
-          value: 75
+          value: 78
         },
         {
           id: 4,
