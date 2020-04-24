@@ -4,9 +4,9 @@
       <header>
         <b-row class="mt-5 mb-4">
           <b-col>
-            <img src="./assets/al.svg" />
+            <img draggable="false" alt="Brasão do Estado de Alagoas" src="./assets/al.svg" />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em 23 de abril às 19:30h</span>
+            <span>Atualizado em {{ date }} às {{ time }}h</span>
           </b-col>
         </b-row>
       </header>
@@ -48,7 +48,7 @@
             >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas</span>
             <span class="d-block">
               Painel desenvolvido por
-              <a href="https://kevinws.com">Kevin Washington</a>, v1.0.2
+              <a href="https://kevinws.com">Kevin Washington</a>, v{{ version }}
             </span>
           </b-col>
         </b-row>
@@ -73,6 +73,9 @@ export default {
   },
   data() {
     return {
+      version: "1.0.3",
+      date: "24 de abril",
+      time: "10:00",
       cards: [
         {
           id: 1,

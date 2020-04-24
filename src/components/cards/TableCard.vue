@@ -142,13 +142,10 @@ td {
     border-top: 1px solid white;
   }
 }
-
-th {
-  //border-top: 1px solid white;
-}
 .b-table-sticky-header {
   overflow-y: auto;
   max-height: 350px !important;
+  margin-bottom: 0 !important;
 }
 div::-webkit-scrollbar {
   width: 10px;
@@ -164,6 +161,14 @@ div::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
+}
+
+.table thead th {
+  font-weight: 600 !important;
+  border: 0px !important;
+  &:first-of-type {
+    color: #fff !important;
+  }
 }
 </style>
 <style scoped>
@@ -200,9 +205,9 @@ table::-webkit-scrollbar-thumb {
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
 }
-
 p {
   font-size: 58%;
   margin: 1em;
+  text-align: justify;
 }
 </style>
