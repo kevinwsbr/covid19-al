@@ -3,7 +3,7 @@
     <template v-slot:header>
       <div class="d-flex justify-content-between">
         <div class="my-auto">
-          <h2 class="align-left mb-0">Casos em Alagoas</h2>
+          <h2 class="align-left mb-0">Casos em Alagoas (23/04)</h2>
         </div>
         <div class="p-0">
           <b-button

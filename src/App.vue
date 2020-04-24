@@ -75,23 +75,23 @@ export default {
     return {
       version: "1.0.3",
       date: "24 de abril",
-      time: "10:00",
+      time: "17:30",
       cards: [
         {
           id: 1,
           title: "Casos confirmados",
           color: "#f49e39",
-          value: 324
+          value: 413
         },
         {
           id: 2,
           title: "Óbitos",
           color: "#3597db",
-          value: 22
+          value: 27
         },
         {
           id: 3,
-          title: "Recuperados",
+          title: "Recuperados (23/04)",
           color: "#58cd72",
           value: 75
         },
@@ -99,7 +99,7 @@ export default {
           id: 4,
           title: "Letalidade",
           color: "#9d5cb6",
-          value: "6.8%"
+          value: "6.5%"
         }
       ]
     };

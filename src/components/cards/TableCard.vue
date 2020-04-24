@@ -3,7 +3,7 @@
     <template v-slot:header>
       <div class="d-flex justify-content-between">
         <div class="my-auto">
-          <h2 class="align-left mb-0">Casos por município</h2>
+          <h2 class="align-left mb-0">Casos por município (23/04)</h2>
         </div>
       </div>
     </template>
