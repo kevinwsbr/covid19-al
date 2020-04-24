@@ -100,7 +100,6 @@ export default {
           Letalidade: 0 + "%"
         },
         { Cidade: "Rio Largo", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Satuba", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Santa Luzia do Norte",
           Confirmados: 1,
@@ -113,6 +112,7 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
+        { Cidade: "Satuba", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "São Miguel dos Milagres",
           Confirmados: 1,
