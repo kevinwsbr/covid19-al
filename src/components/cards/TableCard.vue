@@ -55,9 +55,9 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 355,
+          Confirmados: 427,
           Óbitos: 18,
-          Letalidade: 5 + "%"
+          Letalidade: 4.2 + "%"
         },
         {
           Cidade: "Maragogi",
@@ -67,16 +67,17 @@ export default {
         },
         {
           Cidade: "Marechal Dedoro",
-          Confirmados: 9,
-          Óbitos: 1,
-          Letalidade: 11.1 + "%"
+          Confirmados: 12,
+          Óbitos: 2,
+          Letalidade: 16.6 + "%"
         },
 
-        { Cidade: "Maribondo", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Murici", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Maribondo", Confirmados: 2, Óbitos: 1, Letalidade: 50 + "%" },
+        { Cidade: "Murici", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Olho D'Água das Flores", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Palmeira dos Índios",
-          Confirmados: 2,
+          Confirmados: 6,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -94,12 +95,18 @@ export default {
         },
         { Cidade: "Pilar", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
+          Cidade: "Porto Calvo",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        {
           Cidade: "Porto Real do Colégio",
           Confirmados: 1,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Rio Largo", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Rio Largo", Confirmados: 8, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Santa Luzia do Norte",
           Confirmados: 1,
@@ -112,13 +119,19 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Satuba", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "São Miguel dos Milagres",
           Confirmados: 1,
           Óbitos: 1,
           Letalidade: 100 + "%"
         },
+        {
+          Cidade: "São Sebastião",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        { Cidade: "Satuba", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
           Confirmados: 1,
