@@ -99,7 +99,7 @@ export default {
           id: 4,
           title: "Letalidade",
           color: "#9d5cb6",
-          value: "5.7%"
+          value: "5.8%"
         }
       ]
     };
