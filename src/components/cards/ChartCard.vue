@@ -48,7 +48,7 @@ export default {
           {
             type: "time",
             time: {
-              parser: "DD/MM/YYYY",
+              parser: "YYYY-MM-DD",
               unit: "day",
               unitStepSize: 2,
               displayFormats: {
