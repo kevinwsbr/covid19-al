@@ -99,7 +99,7 @@ h2 {
     padding: 0.2em 1em;
   }
 }
-.card-body {
+.pie-card .card-body {
   padding: 0;
 }
 
@@ -189,7 +189,7 @@ h2 {
   border: 1px solid #dbe9f5;
 }
 @media screen and (min-width: 576px) {
-  .pie-card .card-body {
+  .card-body {
     max-height: 400px;
   }
 }
