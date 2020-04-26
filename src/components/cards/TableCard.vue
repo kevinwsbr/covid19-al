@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       items: [
-          { Cidade: "Arapiraca", Confirmados: 4, Óbitos: 0, Letalidade: 0 + "%" },
+          { Cidade: "Arapiraca", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
         { Cidade: "Atalaia", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         {

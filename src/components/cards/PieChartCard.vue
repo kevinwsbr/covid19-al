@@ -48,7 +48,7 @@ export default {
           {
             title: "UTI Intermediária",
             backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [4, 31],
+            data: [5, 31],
             borderWidth: 1
           }
         ]
@@ -59,7 +59,7 @@ export default {
           {
             title: "UTI Avançada",
             backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [38, 119],
+            data: [41, 119],
             borderWidth: 1
           }
         ]
