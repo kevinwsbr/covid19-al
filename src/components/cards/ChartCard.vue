@@ -3,6 +3,7 @@ import { Line } from "vue-chartjs";
 
 export default {
   extends: Line,
+  props: ["type"],
   data: () => ({
     chartdata: {
       labels: [],
@@ -67,32 +68,47 @@ export default {
       this.$papa.parse("./state.csv", {
         download: true,
         complete: function(results) {
-          var dates = [];
-          var confirmed = [];
-          var deaths = [];
-          var flag = false;
-          results.data.forEach(el => {
-            if (el[1] === "AL") {
-              if (el[4] != 0 || el[6] != 0) {
-                flag = true;
+          let dates = [];
+          let deaths = [];
+          let confirmed = [];
+          let flag = false;
+
+          if (vm.type === "totalCases") {
+            results.data.forEach(el => {
+              if (el[1] === "AL") {
+                if (el[4] != 0 || el[6] != 0) {
+                  flag = true;
+                }
+                if (flag) {
+                  dates.push(el[2]);
+                  confirmed.push(el[4]);
+                  deaths.push(el[6]);
+                }
               }
-              if (flag) {
-                /*var mes = el[2].split("-")[1];
-                var dia = el[2].split("-")[2];
-*/
-                dates.push(el[2]);
-                //new Date('2013-03-10T02:00:00Z');
-                confirmed.push(el[4]);
-                deaths.push(el[6]);
+            });
+
+            vm.chartdata.datasets[0].data = confirmed;
+            vm.chartdata.datasets[1].data = deaths;
+          } else {
+            results.data.forEach(el => {
+              if (el[1] === "AL") {
+                if (el[3] != 0 || el[5] != 0) {
+                  flag = true;
+                }
+                if (flag) {
+                  dates.push(el[2]);
+                  confirmed.push(el[3]);
+                  deaths.push(el[5]);
+                }
               }
-              /*db = el.slice(38)
-                        vm.chartdata.labels = db;*/
-            }
-          });
+            });
+
+            vm.chartdata.datasets[0].data = confirmed;
+            vm.chartdata.datasets.splice(1);
+          }
+
           vm.chartdata.labels = dates;
-          vm.chartdata.datasets[0].data = confirmed;
-          vm.chartdata.datasets[1].data = deaths;
-          //console.log(dates, confirmed);
+
           vm.renderChart(vm.chartdata, vm.options);
         }
       });

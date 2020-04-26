@@ -26,7 +26,19 @@
           </b-col>
         </b-row>
         <b-row class="mb-3">
-          <b-col class="mb-4">
+          <b-col class="mb-3">
+            <b-card class="chart-card" header-tag="header">
+              <template v-slot:header>
+                <div class="d-flex justify-content-between">
+                  <div class="my-auto">
+                    <h2 class="align-left mb-0">Casos novos por dia</h2>
+                  </div>
+                </div>
+              </template>
+              <ChartCard type="newCases" />
+            </b-card>
+          </b-col>
+          <b-col class="mb-3">
             <b-card class="chart-card" header-tag="header">
               <template v-slot:header>
                 <div class="d-flex justify-content-between">
@@ -35,8 +47,13 @@
                   </div>
                 </div>
               </template>
-              <ChartCard />
+              <ChartCard type="totalCases" />
             </b-card>
+          </b-col>
+        </b-row>
+        <b-row class="mb-3">
+          <b-col class="mb-4">
+            <PieChartCard />
           </b-col>
         </b-row>
       </section>
@@ -48,7 +65,8 @@
             >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas</span>
             <span class="d-block">
               Painel desenvolvido por
-              <a href="https://kevinws.com">Kevin Washington</a>, v{{ version }}
+              <a href="https://kevinws.com">Kevin Washington</a>
+              , v{{ version }}
             </span>
           </b-col>
         </b-row>
@@ -62,6 +80,7 @@ import MapCard from "./components/cards/MapCard";
 import InfoCard from "./components/cards/InfoCard";
 import ChartCard from "./components/cards/ChartCard";
 import TableCard from "./components/cards/TableCard";
+import PieChartCard from "./components/cards/PieChartCard";
 
 export default {
   name: "App",
@@ -69,13 +88,14 @@ export default {
     MapCard,
     ChartCard,
     TableCard,
-    InfoCard
+    InfoCard,
+    PieChartCard
   },
   data() {
     return {
-      version: "1.0.3",
-      date: "25 de abril",
-      time: "17:20",
+      version: "1.1.0",
+      date: "26 de abril",
+      time: "17:00",
       cards: [
         {
           id: 1,
