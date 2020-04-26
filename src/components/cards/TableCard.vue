@@ -20,8 +20,9 @@ export default {
   data() {
     return {
       items: [
-        { Cidade: "Arapiraca", Confirmados: 4, Óbitos: 0, Letalidade: 0 + "%" },
+          { Cidade: "Arapiraca", Confirmados: 4, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
+        { Cidade: "Atalaia", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Barra de Santo Antônio",
           Confirmados: 1,
@@ -55,13 +56,13 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 427,
-          Óbitos: 18,
+          Confirmados: 472,
+          Óbitos: 20,
           Letalidade: 4.2 + "%"
         },
         {
           Cidade: "Maragogi",
-          Confirmados: 1,
+          Confirmados: 2,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -72,9 +73,19 @@ export default {
           Letalidade: 16.6 + "%"
         },
 
-        { Cidade: "Maribondo", Confirmados: 2, Óbitos: 1, Letalidade: 50 + "%" },
-        { Cidade: "Murici", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Olho D'Água das Flores", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Maribondo",
+          Confirmados: 2,
+          Óbitos: 1,
+          Letalidade: 50 + "%"
+        },
+        { Cidade: "Murici", Confirmados: 13, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Olho D'Água das Flores",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
         {
           Cidade: "Palmeira dos Índios",
           Confirmados: 6,
@@ -106,7 +117,7 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Rio Largo", Confirmados: 8, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Rio Largo", Confirmados: 10, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Santa Luzia do Norte",
           Confirmados: 1,
@@ -131,7 +142,7 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Satuba", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Satuba", Confirmados: 5, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
           Confirmados: 1,
