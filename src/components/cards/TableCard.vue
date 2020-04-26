@@ -79,6 +79,12 @@ export default {
           Óbitos: 1,
           Letalidade: 50 + "%"
         },
+        {
+          Cidade: "Matriz do Camaragibe",
+          Confirmados: 1,
+          Óbitos: 1,
+          Letalidade: 100 + "%"
+        },
         { Cidade: "Murici", Confirmados: 13, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Olho D'Água das Flores",
