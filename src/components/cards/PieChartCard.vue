@@ -1,5 +1,5 @@
 <template>
-  <b-card header-tag="header">
+  <b-card class="pie-card" header-tag="header">
     <template v-slot:header>
       <div class="d-flex justify-content-between">
         <div class="my-auto">
@@ -189,7 +189,7 @@ h2 {
   border: 1px solid #dbe9f5;
 }
 @media screen and (min-width: 576px) {
-  .card-body {
+  .pie-card .card-body {
     max-height: 400px;
   }
 }
