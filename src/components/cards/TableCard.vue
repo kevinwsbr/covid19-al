@@ -21,7 +21,12 @@ export default {
     return {
       items: [
         { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
-          { Cidade: "Arapiraca", Confirmados: 11, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Arapiraca",
+          Confirmados: 11,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
         { Cidade: "Atalaia", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Barra de Santo Antônio",
@@ -129,7 +134,12 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Rio Largo", Confirmados: 12, Óbitos: 0, Letalidade: 0 + "%" },
+        {
+          Cidade: "Rio Largo",
+          Confirmados: 12,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
         {
           Cidade: "Santa Luzia do Norte",
           Confirmados: 3,
