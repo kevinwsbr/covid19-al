@@ -20,8 +20,8 @@ export default {
   data() {
     return {
       items: [
-          { Cidade: "Arapiraca", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
+          { Cidade: "Arapiraca", Confirmados: 11, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Atalaia", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Barra de Santo Antônio",
@@ -56,21 +56,21 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 472,
-          Óbitos: 20,
-          Letalidade: 4.2 + "%"
+          Confirmados: 535,
+          Óbitos: 22,
+          Letalidade: 4.1 + "%"
         },
         {
           Cidade: "Maragogi",
-          Confirmados: 2,
+          Confirmados: 3,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
         {
           Cidade: "Marechal Dedoro",
-          Confirmados: 12,
+          Confirmados: 14,
           Óbitos: 2,
-          Letalidade: 16.6 + "%"
+          Letalidade: 14.2 + "%"
         },
 
         {
@@ -85,7 +85,7 @@ export default {
           Óbitos: 1,
           Letalidade: 100 + "%"
         },
-        { Cidade: "Murici", Confirmados: 13, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Murici", Confirmados: 14, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Olho D'Água das Flores",
           Confirmados: 1,
@@ -105,15 +105,21 @@ export default {
           Letalidade: 100 + "%"
         },
         {
+          Cidade: "Penedo",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        {
           Cidade: "Piaçabuçu",
           Confirmados: 2,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Pilar", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Pilar", Confirmados: 4, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Porto Calvo",
-          Confirmados: 1,
+          Confirmados: 2,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -123,10 +129,10 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Rio Largo", Confirmados: 10, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Rio Largo", Confirmados: 12, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Santa Luzia do Norte",
-          Confirmados: 1,
+          Confirmados: 3,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -148,10 +154,10 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Satuba", Confirmados: 5, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Satuba", Confirmados: 6, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
-          Confirmados: 1,
+          Confirmados: 2,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
