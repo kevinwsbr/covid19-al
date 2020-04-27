@@ -62,7 +62,7 @@
           <b-col class="text-center">
             <span
               class="d-block mb-3"
-            >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas</span>
+            >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas, Secretarias Municipais de Saúde</span>
             <span class="d-block">
               Painel desenvolvido por
               <a href="https://kevinws.com">Kevin Washington</a>
