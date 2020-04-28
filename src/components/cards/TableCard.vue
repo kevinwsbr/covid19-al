@@ -171,6 +171,7 @@ export default {
           Letalidade: 0 + "%"
         },
         { Cidade: "Satuba", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Taquarana", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
           Confirmados: 3,
