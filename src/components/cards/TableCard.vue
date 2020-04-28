@@ -61,21 +61,21 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 535,
-          Óbitos: 22,
-          Letalidade: 4.1 + "%"
+          Confirmados: 645,
+          Óbitos: 24,
+          Letalidade: 3.7 + "%"
         },
         {
           Cidade: "Maragogi",
-          Confirmados: 3,
+          Confirmados: 5,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
         {
           Cidade: "Marechal Dedoro",
-          Confirmados: 14,
+          Confirmados: 16,
           Óbitos: 2,
-          Letalidade: 14.2 + "%"
+          Letalidade: 12.5 + "%"
         },
 
         {
@@ -90,7 +90,7 @@ export default {
           Óbitos: 1,
           Letalidade: 100 + "%"
         },
-        { Cidade: "Murici", Confirmados: 14, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Murici", Confirmados: 17, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Olho D'Água das Flores",
           Confirmados: 1,
@@ -136,19 +136,19 @@ export default {
         },
         {
           Cidade: "Rio Largo",
-          Confirmados: 12,
+          Confirmados: 20,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
         {
           Cidade: "Santa Luzia do Norte",
-          Confirmados: 3,
+          Confirmados: 4,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
         {
           Cidade: "São Miguel dos Campos",
-          Confirmados: 1,
+          Confirmados: 5,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -164,10 +164,10 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Satuba", Confirmados: 6, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Satuba", Confirmados: 7, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
-          Confirmados: 2,
+          Confirmados: 3,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },

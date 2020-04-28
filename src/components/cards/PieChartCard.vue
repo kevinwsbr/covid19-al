@@ -37,7 +37,7 @@ export default {
           {
             title: "Leitos clínicos",
             backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [65, 219],
+            data: [77, 219],
             borderWidth: 1
           }
         ]
@@ -48,7 +48,7 @@ export default {
           {
             title: "UTI Intermediária",
             backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [5, 31],
+            data: [8, 31],
             borderWidth: 1
           }
         ]
@@ -59,7 +59,7 @@ export default {
           {
             title: "UTI Avançada",
             backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [44, 126],
+            data: [52, 126],
             borderWidth: 1
           }
         ]
