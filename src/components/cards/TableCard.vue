@@ -98,6 +98,12 @@ export default {
           Letalidade: 0 + "%"
         },
         {
+          Cidade: "Palestina",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        {
           Cidade: "Palmeira dos Índios",
           Confirmados: 6,
           Óbitos: 0,
