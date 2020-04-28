@@ -95,7 +95,7 @@ export default {
     return {
       version: "1.1.0",
       date: "28 de abril",
-      time: "17:00",
+      time: "18:15",
       cards: [
         {
           id: 1,
