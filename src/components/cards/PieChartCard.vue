@@ -8,13 +8,13 @@
       </div>
     </template>
     <b-row>
-      <b-col class="px-5 py-1 my-2" cols="12" xl="4">
+      <b-col class="px-5 py-1 my-2" cols="12" md="4">
         <DataPie :chartdata="chartdata"></DataPie>
       </b-col>
-      <b-col class="px-5 py-1 my-2" cols="12" xl="4">
+      <b-col class="px-5 py-1 my-2" cols="12" md="4">
         <DataPie :chartdata="chartdata2"></DataPie>
       </b-col>
-      <b-col class="px-5 py-1 my-2" cols="12" xl="4">
+      <b-col class="px-5 py-1 my-2" cols="12" md="4">
         <DataPie :chartdata="chartdata3"></DataPie>
       </b-col>
     </b-row>
@@ -188,7 +188,7 @@ h2 {
   background: #fff;
   border: 1px solid #dbe9f5;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   .card-body {
     max-height: 400px;
   }
