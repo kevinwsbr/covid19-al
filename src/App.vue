@@ -95,31 +95,31 @@ export default {
     return {
       version: "1.1.2",
       date: "30 de abril",
-      time: "09:00",
+      time: "18:00",
       cards: [
         {
           id: 1,
           title: "Casos confirmados",
           color: "#f49e39",
-          value: 957
+          value: 1045
         },
         {
           id: 2,
           title: "Óbitos",
           color: "#3597db",
-          value: 41
+          value: 47
         },
         {
           id: 3,
           title: "Recuperados",
           color: "#58cd72",
-          value: 107
+          value: 238
         },
         {
           id: 4,
           title: "Letalidade",
           color: "#9d5cb6",
-          value: "4.3%"
+          value: "4.5%"
         }
       ]
     };

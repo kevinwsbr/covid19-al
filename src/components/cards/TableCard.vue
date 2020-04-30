@@ -36,11 +36,11 @@ export default {
         },
         {
           Cidade: "Barra de São Miguel",
-          Confirmados: 3,
+          Confirmados: 4,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Batalha", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Batalha", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Boca da Mata",
           Confirmados: 1,
@@ -58,7 +58,7 @@ export default {
         },
         {
           Cidade: "Junqueiro",
-          Confirmados: 1,
+          Confirmados: 2,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -82,9 +82,9 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 791,
-          Óbitos: 26,
-          Letalidade: 3.3 + "%"
+          Confirmados: 853,
+          Óbitos: 32,
+          Letalidade: 3.7 + "%"
         },
         {
           Cidade: "Maragogi",
@@ -94,9 +94,9 @@ export default {
         },
         {
           Cidade: "Marechal Dedoro",
-          Confirmados: 24,
+          Confirmados: 30,
           Óbitos: 2,
-          Letalidade: 8.3 + "%"
+          Letalidade: 6.6 + "%"
         },
 
         {
@@ -111,7 +111,7 @@ export default {
           Óbitos: 1,
           Letalidade: 100 + "%"
         },
-        { Cidade: "Murici", Confirmados: 18, Óbitos: 1, Letalidade: 5.5 + "%" },
+        { Cidade: "Murici", Confirmados: 20, Óbitos: 1, Letalidade: 5 + "%" },
         {
           Cidade: "Olho D'Água das Flores",
           Confirmados: 1,
@@ -126,7 +126,7 @@ export default {
         },
         {
           Cidade: "Palmeira dos Índios",
-          Confirmados: 7,
+          Confirmados: 11,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -169,13 +169,13 @@ export default {
         },
         {
           Cidade: "Rio Largo",
-          Confirmados: 26,
+          Confirmados: 24,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
         {
           Cidade: "Santa Luzia do Norte",
-          Confirmados: 4,
+          Confirmados: 5,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -193,12 +193,12 @@ export default {
         },
         {
           Cidade: "São Sebastião",
-          Confirmados: 1,
+          Confirmados: 3,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Satuba", Confirmados: 10, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Taquarana", Confirmados: 3, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Satuba", Confirmados: 12, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Taquarana", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
           Confirmados: 5,
