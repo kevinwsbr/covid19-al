@@ -23,7 +23,7 @@ export default {
         { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
         {
           Cidade: "Arapiraca",
-          Confirmados: 16,
+          Confirmados: 18,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
