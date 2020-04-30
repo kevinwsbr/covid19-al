@@ -112,6 +112,7 @@ export default {
           Letalidade: 100 + "%"
         },
         { Cidade: "Murici", Confirmados: 20, Óbitos: 1, Letalidade: 5 + "%" },
+        { Cidade: "Novo Lino", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Olho D'Água das Flores",
           Confirmados: 1,
