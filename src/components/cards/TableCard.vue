@@ -23,7 +23,7 @@ export default {
         { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
         {
           Cidade: "Arapiraca",
-          Confirmados: 18,
+          Confirmados: 21,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -48,7 +48,9 @@ export default {
           Letalidade: 0 + "%"
         },
         { Cidade: "Branquinha", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Capela", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Campo Alegre", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Capela", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Colônia Leopoldina", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Coruripe", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Delmiro Gouveia",
@@ -57,16 +59,22 @@ export default {
           Letalidade: 0 + "%"
         },
         {
-          Cidade: "Junqueiro",
-          Confirmados: 2,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
           Cidade: "Ibateguara",
           Confirmados: 1,
           Óbitos: 1,
           Letalidade: 100 + "%"
+        },
+        {
+          Cidade: "Joaquim Gomes",
+          Confirmados: 1,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
+        },
+        {
+          Cidade: "Junqueiro",
+          Confirmados: 6,
+          Óbitos: 0,
+          Letalidade: 0 + "%"
         },
         {
           Cidade: "Lagoa da Canoa",
@@ -82,8 +90,8 @@ export default {
         },
         {
           Cidade: "Maceió",
-          Confirmados: 853,
-          Óbitos: 32,
+          Confirmados: 1008,
+          Óbitos: 38,
           Letalidade: 3.7 + "%"
         },
         {
@@ -94,11 +102,10 @@ export default {
         },
         {
           Cidade: "Marechal Dedoro",
-          Confirmados: 30,
+          Confirmados: 33,
           Óbitos: 2,
-          Letalidade: 6.6 + "%"
+          Letalidade: 6 + "%"
         },
-
         {
           Cidade: "Maribondo",
           Confirmados: 2,
@@ -127,7 +134,7 @@ export default {
         },
         {
           Cidade: "Palmeira dos Índios",
-          Confirmados: 11,
+          Confirmados: 12,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -155,7 +162,7 @@ export default {
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Pilar", Confirmados: 4, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Pilar", Confirmados: 5, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "Porto Calvo",
           Confirmados: 2,
@@ -170,7 +177,7 @@ export default {
         },
         {
           Cidade: "Rio Largo",
-          Confirmados: 24,
+          Confirmados: 27,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
@@ -194,11 +201,11 @@ export default {
         },
         {
           Cidade: "São Sebastião",
-          Confirmados: 3,
+          Confirmados: 4,
           Óbitos: 0,
           Letalidade: 0 + "%"
         },
-        { Cidade: "Satuba", Confirmados: 12, Óbitos: 0, Letalidade: 0 + "%" },
+        { Cidade: "Satuba", Confirmados: 17, Óbitos: 0, Letalidade: 0 + "%" },
         { Cidade: "Taquarana", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
         {
           Cidade: "União dos Palmares",
