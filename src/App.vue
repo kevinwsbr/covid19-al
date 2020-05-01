@@ -22,7 +22,7 @@
             <MapCard />
           </b-col>
           <b-col class="mb-4" cols="12" xl="5">
-            <TableCard />
+            <TableCard :cities="cities" />
           </b-col>
         </b-row>
         <b-row class="mb-3">
@@ -96,33 +96,48 @@ export default {
       version: "1.1.2",
       date: "30 de abril",
       time: "18:00",
-      cards: [
-        {
-          id: 1,
-          title: "Casos confirmados",
-          color: "#f49e39",
-          value: 1045
-        },
-        {
-          id: 2,
-          title: "Óbitos",
-          color: "#3597db",
-          value: 47
-        },
-        {
-          id: 3,
-          title: "Recuperados",
-          color: "#58cd72",
-          value: 238
-        },
-        {
-          id: 4,
-          title: "Letalidade",
-          color: "#9d5cb6",
-          value: "4.5%"
-        }
-      ]
+      results: [],
+      cities: [],
+      cards: [],
     };
+  },
+  methods: {
+    updateCards(data) {
+      this.cards.push({
+        id: 1,
+        title: "Casos confirmados",
+        color: "#f49e39",
+        value: data.confirmedCases | 0
+      });
+
+      this.cards.push({
+        id: 2,
+        title: "Óbitos",
+        color: "#3597db",
+        value: data.deaths | 0
+      });
+
+      this.cards.push({
+        id: 3,
+        title: "Recuperados",
+        color: "#58cd72",
+        value: data.recoveredCases | 0
+      });
+
+      this.cards.push({
+        id: 4,
+        title: "Letalidade",
+        color: "#9d5cb6",
+        value: ((data.deaths / data.confirmedCases) * 100).toFixed(1) + "%"
+      });
+    }
+  },
+  mounted() {
+    this.axios.get("http://localhost:3000/stats/").then(response => {
+      this.results = response.data;
+      this.cities = this.results.cities;
+      this.updateCards(this.results);
+    });
   },
   async created() {
     //const response = await fetch("./res.json");

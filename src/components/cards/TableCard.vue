@@ -7,7 +7,7 @@
         </div>
       </div>
     </template>
-    <b-table sticky-header :items="items"></b-table>
+    <b-table sticky-header :fields="fields" :items="cities"></b-table>
     <p>
       <b>Nota:</b> a diferença entre os números totais e os números apresentados nesta tabela corresponde aos casos registrados em Alagoas referentes a pessoas que residem em outros estados.
     </p>
@@ -17,204 +17,36 @@
 <script>
 export default {
   name: "TableCard",
+  props: ["cities"],
   data() {
     return {
-      items: [
-        { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
+      filteredCities: [],
+      fields: [
         {
-          Cidade: "Arapiraca",
-          Confirmados: 18,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Atalaia", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Barra de Santo Antônio",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
+          key: "name",
+          label: ""
+          //sortable: true
         },
         {
-          Cidade: "Barra de São Miguel",
-          Confirmados: 4,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Batalha", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Boca da Mata",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Branquinha", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Capela", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Coruripe", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Delmiro Gouveia",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
+          key: "confirmedCases",
+          label: "Confirmados"
+          //sortable: false
         },
         {
-          Cidade: "Junqueiro",
-          Confirmados: 2,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
+          key: "deaths",
+          label: "Óbitos"
+          //sortable: false
         },
         {
-          Cidade: "Ibateguara",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Lagoa da Canoa",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Limoeiro de Anadia",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Maceió",
-          Confirmados: 853,
-          Óbitos: 32,
-          Letalidade: 3.7 + "%"
-        },
-        {
-          Cidade: "Maragogi",
-          Confirmados: 5,
-          Óbitos: 1,
-          Letalidade: 20 + "%"
-        },
-        {
-          Cidade: "Marechal Dedoro",
-          Confirmados: 30,
-          Óbitos: 2,
-          Letalidade: 6.6 + "%"
-        },
-
-        {
-          Cidade: "Maribondo",
-          Confirmados: 2,
-          Óbitos: 1,
-          Letalidade: 50 + "%"
-        },
-        {
-          Cidade: "Matriz do Camaragibe",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        { Cidade: "Murici", Confirmados: 20, Óbitos: 1, Letalidade: 5 + "%" },
-        { Cidade: "Novo Lino", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Olho D'Água das Flores",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Palestina",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Palmeira dos Índios",
-          Confirmados: 11,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Paripueira",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Paulo Jacinto",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Penedo",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Piaçabuçu",
-          Confirmados: 2,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Pilar", Confirmados: 4, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Porto Calvo",
-          Confirmados: 2,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Porto Real do Colégio",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Rio Largo",
-          Confirmados: 24,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Santa Luzia do Norte",
-          Confirmados: 5,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "São Miguel dos Campos",
-          Confirmados: 5,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "São Miguel dos Milagres",
-          Confirmados: 2,
-          Óbitos: 1,
-          Letalidade: 50 + "%"
-        },
-        {
-          Cidade: "São Sebastião",
-          Confirmados: 3,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Satuba", Confirmados: 12, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Taquarana", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "União dos Palmares",
-          Confirmados: 5,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" }
+          key: "letality",
+          label: "Letalidade"
+          //sortable: false
+        }
       ]
     };
   },
-  async created() {
-    //const response = await fetch("./res.json");
-    //const data = await response.json();
-    //this.cards = data;
-    //console.log(this.cards);
+  mounted() {
+    console.log(this.cities);
   }
 };
 </script>

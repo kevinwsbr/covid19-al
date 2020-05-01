@@ -97,22 +97,6 @@ export default {
           (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+" + "</div>");
       }
     },
-    updateLegend() {
-      /*var div = LMap.DomUtil.create("div", "info legend"),
-        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        //labels = [];
-
-      // loop through our density intervals and generate a label with a colored square for each interval
-      /*for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-          '<i style="background:' +
-          "#ddd" +
-          '"></i> ' +
-          grades[i] +
-          (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-      }*/
-      //return div;
-    },
     onEachFeatureFunction(sras) {
       var label =
         sras === "confirmedCases" ? " caso" : sras === "deaths" ? " óbito" : "";
@@ -126,7 +110,7 @@ export default {
         if (!c) this.generateLegends(sras);
 
         c = true;
-        var city = feature.properties.NM_MUNICIP;
+        var city = feature.properties.name;
         var value = "";
 
         if (sras === "confirmedCases") {
@@ -174,34 +158,12 @@ export default {
   },
   async created() {
     this.loading = true;
-    const response = await fetch("./data.geojson");
-    const data = await response.json();
-    this.geojson = data;
 
-    /*var legend = LMap.control({ position: "bottomright" });
-
-    legend.onAdd = function(map) {
-      var div = LMap.DomUtil.create("div", "info legend"),
-        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        labels = [];
-
-      // loop through our density intervals and generate a label with a colored square for each interval
-      for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-          '<i style="background:' +
-          "#ddd" +
-          '"></i> ' +
-          grades[i] +
-          (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-      }
-
-      return div;
-    };
-
-    legend.addTo(map);*/
+    this.axios.get("http://localhost:3000/cities/map").then(response => {
+      this.geojson = response.data;
+    });
 
     this.loading = false;
-    //console.log(this.mapType);
   }
 };
 </script>
