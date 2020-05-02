@@ -59,7 +59,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.cities);
+    //console.log(this.cities);
   },
 };
 </script>
