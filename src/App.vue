@@ -133,7 +133,7 @@ export default {
     }
   },
   mounted() {
-    this.axios.get("http://localhost:3000/stats/").then(response => {
+    this.axios.get("http://covid-276012.rj.r.appspot.com/stats/").then(response => {
       this.results = response.data;
       this.cities = this.results.cities;
       this.updateCards(this.results);

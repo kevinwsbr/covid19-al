@@ -159,7 +159,7 @@ export default {
   async created() {
     this.loading = true;
 
-    this.axios.get("http://localhost:3000/cities/map").then(response => {
+    this.axios.get("http://covid-276012.rj.r.appspot.com/cities/map").then(response => {
       this.geojson = response.data;
     });
 

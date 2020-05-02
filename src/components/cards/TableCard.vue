@@ -9,7 +9,9 @@
     </template>
     <b-table sticky-header :fields="fields" :items="cities"></b-table>
     <p>
-      <b>Nota:</b> a diferença entre os números totais e os números apresentados nesta tabela corresponde aos casos registrados em Alagoas referentes a pessoas que residem em outros estados.
+      <b>Nota:</b> a diferença entre os números totais e os números apresentados
+      nesta tabela corresponde aos casos registrados em Alagoas referentes a
+      pessoas que residem em outros estados.
     </p>
   </b-card>
 </template>
@@ -24,30 +26,41 @@ export default {
       fields: [
         {
           key: "name",
-          label: ""
+          label: "",
           //sortable: true
+          formatter: 'formatName'
         },
         {
           key: "confirmedCases",
-          label: "Confirmados"
+          label: "Confirmados",
           //sortable: false
         },
         {
           key: "deaths",
-          label: "Óbitos"
+          label: "Óbitos",
           //sortable: false
         },
         {
           key: "letality",
-          label: "Letalidade"
+          label: "Letalidade",
           //sortable: false
-        }
-      ]
+        },
+      ],
     };
+  },
+  methods: {
+    formatName(text) {
+      text = text
+        .toLowerCase()
+        .split(" ")
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(" ");
+      return text;
+    },
   },
   mounted() {
     console.log(this.cities);
-  }
+  },
 };
 </script>
 
