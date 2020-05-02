@@ -95,7 +95,7 @@ export default {
     return {
       version: "1.2.0",
       date: "02 de maio",
-      time: "17:00",
+      time: "19:00",
       results: [],
       cities: [],
       cards: [],
