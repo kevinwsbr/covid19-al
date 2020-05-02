@@ -43,6 +43,7 @@ export default {
         {
           key: "letality",
           label: "Letalidade",
+          formatter: 'addPercentage'
           //sortable: false
         },
       ],
@@ -57,6 +58,9 @@ export default {
         .join(" ");
       return text;
     },
+    addPercentage(text) {
+      return text + "%";
+    }
   },
   mounted() {
     //console.log(this.cities);
