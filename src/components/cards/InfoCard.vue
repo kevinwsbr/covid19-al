@@ -3,7 +3,11 @@
     <div class="title">
       <small>{{ data.title }}</small>
     </div>
-    <div class="value" :style="{ '--cardColor': data.color }">
+    <div v-if="!data" class="placeholder wave">
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div v-if="data" class="value" :style="{ '--cardColor': data.color }">
       <span>{{ data.value }}</span>
     </div>
   </b-card>
@@ -13,7 +17,7 @@
 export default {
   name: "InfoCard",
   props: ["data"],
-  mounted: function() {}
+  mounted: function() {},
 };
 </script>
 <style lang="scss" scoped>
@@ -26,15 +30,14 @@ export default {
   color: var(--cardColor);
 }
 .title {
-  margin-bottom: -5px; 
+  margin-bottom: -5px;
 }
 .title > small {
   font-weight: 600;
   letter-spacing: 0.01rem;
   text-transform: uppercase;
 }
-</style>
-<style scoped>
+
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 .card-map {
   padding: 0;
@@ -56,6 +59,48 @@ h2 {
 @media screen and (max-width: 576px) {
   .card-body {
     padding: 0.75rem 1.25rem !important;
+  }
+}
+
+.placeholder {
+  width: 80%;
+  height: 100%;
+}
+
+.placeholder .line {
+  margin-top: 5px;
+  height: 16px;
+}
+
+.placeholder .line:nth-child(2) {
+  margin-top: 10px;
+  height: 40px;
+  width: 50%;
+}
+
+.placeholder.wave div {
+  animation: wave 1s infinite linear forwards;
+  -webkit-animation: wave 1s infinite linear forwards;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+}
+
+@keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@-webkit-keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
   }
 }
 </style>

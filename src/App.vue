@@ -4,7 +4,11 @@
       <header>
         <b-row class="mt-5 mb-4">
           <b-col>
-            <img draggable="false" alt="Brasão do Estado de Alagoas" src="./assets/al.svg" />
+            <img
+              draggable="false"
+              alt="Brasão do Estado de Alagoas"
+              src="./assets/al.svg"
+            />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
             <span>Atualizado em {{ date }} às {{ time }}h</span>
           </b-col>
@@ -13,7 +17,14 @@
 
       <section class="main">
         <b-row>
-          <b-col class="mb-4" cols="12" md="6" xl="3" v-for="card in cards" :key="card.id">
+          <b-col
+            class="mb-4"
+            cols="12"
+            md="6"
+            xl="3"
+            v-for="card in cards"
+            :key="card.id"
+          >
             <InfoCard :data="card" />
           </b-col>
         </b-row>
@@ -60,9 +71,10 @@
       <footer class="mb-5">
         <b-row>
           <b-col class="text-center">
-            <span
-              class="d-block mb-3"
-            >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de Alagoas, Secretarias Municipais de Saúde</span>
+            <span class="d-block mb-3"
+              >Fontes: Ministério da Saúde, Secretaria da Saúde do Estado de
+              Alagoas, Secretarias Municipais de Saúde</span
+            >
             <span class="d-block">
               Painel desenvolvido por
               <a href="https://kevinws.com">Kevin Washington</a>
@@ -89,7 +101,7 @@ export default {
     ChartCard,
     TableCard,
     InfoCard,
-    PieChartCard
+    PieChartCard,
   },
   data() {
     return {
@@ -98,42 +110,46 @@ export default {
       time: "19:00",
       results: [],
       cities: [],
-      cards: [],
+      cards: ["", "", "", ""],
     };
   },
   methods: {
     updateCards(data) {
+      this.cards.pop();
+      this.cards.pop();
+      this.cards.pop();
+      this.cards.pop();
       this.cards.push({
         id: 1,
         title: "Casos confirmados",
         color: "#f49e39",
-        value: data.confirmedCases | 0
+        value: data.confirmedCases | 0,
       });
 
       this.cards.push({
         id: 2,
         title: "Óbitos",
         color: "#3597db",
-        value: data.deaths | 0
+        value: data.deaths | 0,
       });
 
       this.cards.push({
         id: 3,
         title: "Recuperados",
         color: "#58cd72",
-        value: data.recoveredCases | 0
+        value: data.recoveredCases | 0,
       });
 
       this.cards.push({
         id: 4,
         title: "Letalidade",
         color: "#9d5cb6",
-        value: ((data.deaths / data.confirmedCases) * 100).toFixed(1) + "%"
+        value: ((data.deaths / data.confirmedCases) * 100).toFixed(1) + "%",
       });
-    }
+    },
   },
   mounted() {
-    this.axios.get("https://api.kevinws.com/stats/").then(response => {
+    this.axios.get("https://api.kevinws.com/stats/").then((response) => {
       this.results = response.data;
       this.cities = this.results.cities;
       this.updateCards(this.results);
@@ -144,7 +160,7 @@ export default {
     //const data = await response.json();
     //this.cards = data;
     //console.log(this.cards);
-  }
+  },
 };
 </script>
 
@@ -241,4 +257,4 @@ body::-webkit-scrollbar-thumb {
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
 }
-</style> 
+</style>

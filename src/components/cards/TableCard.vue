@@ -8,6 +8,15 @@
       </div>
     </template>
     <b-table sticky-header :fields="fields" :items="cities"></b-table>
+    <div v-if="!cities.length" class="loader-container">
+      <div v-for="i in 9" :key="i" class="placeholder d-flex wave">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
     <p>
       <b>Nota:</b> a diferença entre os números totais e os números apresentados
       nesta tabela corresponde aos casos registrados em Alagoas referentes a
@@ -28,7 +37,7 @@ export default {
           key: "name",
           label: "",
           //sortable: true
-          formatter: 'formatName'
+          formatter: "formatName",
         },
         {
           key: "confirmedCases",
@@ -43,7 +52,7 @@ export default {
         {
           key: "letality",
           label: "Letalidade",
-          formatter: 'addPercentage'
+          formatter: "addPercentage",
           //sortable: false
         },
       ],
@@ -60,10 +69,10 @@ export default {
     },
     addPercentage(text) {
       return text + "%";
-    }
+    },
   },
   mounted() {
-    //console.log(this.cities);
+
   },
 };
 </script>
@@ -131,7 +140,7 @@ div::-webkit-scrollbar-thumb {
   }
 }
 </style>
-<style scoped>
+<style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 .card-map {
   padding: 0;
@@ -169,5 +178,50 @@ p {
   font-size: 58%;
   margin: 1em;
   text-align: justify;
+}
+
+.placeholder {
+  width: 100%;
+  height: 34px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.placeholder .line {
+  width: 65%;
+  height: 10px;
+  margin: auto 1.5rem;
+}
+
+.placeholder .line:nth-child(2),
+.line:nth-child(3),
+.line:nth-child(4) {
+  width: 35%;
+  height: 10px;
+}
+
+.placeholder.wave div {
+  animation: wave 1s infinite linear forwards;
+  -webkit-animation: wave 1s infinite linear forwards;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+}
+
+@keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@-webkit-keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
 }
 </style>
