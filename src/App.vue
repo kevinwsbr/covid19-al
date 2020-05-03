@@ -106,8 +106,8 @@ export default {
   data() {
     return {
       version: "1.2.0",
-      date: "02 de maio",
-      time: "19:00",
+      date: "03 de maio",
+      time: "12:00",
       results: [],
       cities: [],
       cards: ["", "", "", ""],
