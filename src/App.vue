@@ -10,7 +10,16 @@
               src="./assets/al.svg"
             />
             <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em {{ date }} às {{ time }}h</span>
+            <span>Atualizado em </span>
+            <div v-if="!date" class="placeholder wave">
+              <div class="line"></div>
+            </div>
+            <span class="variable">{{ date }}</span> <span> às </span>
+            <div v-if="!time" class="placeholder wave">
+              <div class="line"></div>
+            </div>
+            <span class="variable">{{ time }}</span
+            ><span>h</span>
           </b-col>
         </b-row>
       </header>
@@ -64,7 +73,7 @@
         </b-row>
         <b-row class="mb-3">
           <b-col class="mb-4">
-            <PieChartCard />
+            <PieChartCard :vacancies="vacancies" />
           </b-col>
         </b-row>
       </section>
@@ -106,10 +115,11 @@ export default {
   data() {
     return {
       version: "1.2.0",
-      date: "03 de maio",
-      time: "17:00",
+      date: "",
+      time: "",
       results: [],
       cities: [],
+      vacancies: [],
       cards: ["", "", "", ""],
     };
   },
@@ -152,6 +162,9 @@ export default {
     this.axios.get("https://api.kevinws.com/stats/").then((response) => {
       this.results = response.data;
       this.cities = this.results.cities;
+      this.date = this.results.date;
+      this.time = this.results.time;
+      this.vacancies = this.results.vacancies;
       this.updateCards(this.results);
     });
   },
@@ -201,6 +214,7 @@ header {
     color: #607d8b;
     font-weight: 500;
     letter-spacing: -0.02rem;
+    float: left;
   }
   img {
     max-height: 55px;
@@ -224,7 +238,58 @@ footer {
     margin-bottom: 1rem !important;
   }
 }
+
+.variable, .placeholder {
+  margin: 0 0.2rem;
+}
+
+.placeholder {
+  width: 40px;
+  height: 100%;
+}
+
+.placeholder .line {
+  margin-top: 5px;
+  height: 16px;
+}
+
+.placeholder .line:nth-child(2) {
+  margin-top: 10px;
+  height: 40px;
+  width: 50%;
+}
+
+.placeholder {
+  float: left;
+}
+
+.placeholder.wave div {
+  animation: wave 1s infinite linear forwards;
+  -webkit-animation: wave 1s infinite linear forwards;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+}
+
+@keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@-webkit-keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
 </style>
+
 <style lang="scss">
 h2 {
   font-size: 1.2rem;

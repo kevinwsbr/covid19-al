@@ -8,14 +8,14 @@
       </div>
     </template>
     <b-row>
-      <b-col class="px-5 py-1 my-2" cols="12" md="4">
-        <DataPie :chartdata="chartdata"></DataPie>
-      </b-col>
-      <b-col class="px-5 py-1 my-2" cols="12" md="4">
-        <DataPie :chartdata="chartdata2"></DataPie>
-      </b-col>
-      <b-col class="px-5 py-1 my-2" cols="12" md="4">
-        <DataPie :chartdata="chartdata3"></DataPie>
+      <b-col
+        v-for="item in vacancies"
+        :key="item.datasets[0].title"
+        class="px-5 py-1 my-2"
+        cols="12"
+        md="4"
+      >
+        <DataPie :chartdata="item"></DataPie>
       </b-col>
     </b-row>
   </b-card>
@@ -26,57 +26,13 @@ import DataPie from "../DataPie.vue";
 
 export default {
   name: "PieChartCard",
+  props: ["vacancies"],
   components: {
-    DataPie
-  },
-  data() {
-    return {
-      chartdata: {
-        labels: ["Utilizados", "Disponíveis"],
-        datasets: [
-          {
-            title: "Leitos clínicos",
-            backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [125, 259-125],
-            borderWidth: 1
-          }
-        ]
-      },
-      chartdata2: {
-        labels: ["Utilizados", "Disponíveis"],
-        datasets: [
-          {
-            title: "UTI Intermediária",
-            backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [10, 31-10],
-            borderWidth: 1
-          }
-        ]
-      },
-      chartdata3: {
-        labels: ["Utilizados", "Disponíveis"],
-        datasets: [
-          {
-            title: "UTI Avançada",
-            backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [60, 140-60],
-            borderWidth: 1
-          }
-        ]
-      }
-    };
-  },
-  methods: {
-    changeMap(type) {
-      if (type !== this.type) this.type = type;
-    }
+    DataPie,
   },
   async created() {
     //const response = await fetch("./res.json");
-    //const data = await response.json();
-    //this.cards = data;
-    //console.log(this.cards);
-  }
+  },
 };
 </script>
 
