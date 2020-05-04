@@ -71,7 +71,7 @@ export default {
             time: {
               parser: "YYYY-MM-DD",
               unit: "day",
-              unitStepSize: 3,
+              unitStepSize: 1,
               displayFormats: {
                 day: "DD/MM",
               },

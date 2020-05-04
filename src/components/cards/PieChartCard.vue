@@ -2,8 +2,8 @@
   <b-card class="pie-card" header-tag="header">
     <template v-slot:header>
       <div class="d-flex justify-content-between">
-        <div class="my-auto">
-          <h2 class="align-left mb-0">Leitos para COVID-19</h2>
+        <div class="my-auto w-100">
+          <h2 class="mb-0">Leitos para COVID-19</h2>
         </div>
       </div>
     </template>

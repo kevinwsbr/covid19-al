@@ -2,8 +2,8 @@
   <b-card class="table-card" header-tag="header">
     <template v-slot:header>
       <div class="d-flex justify-content-between">
-        <div class="my-auto">
-          <h2 class="align-left mb-0">Casos por município</h2>
+        <div class="my-auto w-100">
+          <h2 class=" mb-0">Casos por município</h2>
         </div>
       </div>
     </template>
@@ -71,9 +71,7 @@ export default {
       return text + "%";
     },
   },
-  mounted() {
-
-  },
+  mounted() {},
 };
 </script>
 
@@ -139,6 +137,10 @@ div::-webkit-scrollbar-thumb {
     color: #fff !important;
   }
 }
+
+.table td {
+  border-top: 1px solid #dbe9f5 !important;
+}
 </style>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
@@ -166,6 +168,7 @@ table {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
+
 table::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
 }

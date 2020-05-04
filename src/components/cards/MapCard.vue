@@ -1,11 +1,11 @@
 <template>
   <b-card class="map-card" header-tag="header">
     <template v-slot:header>
-      <div class="d-flex justify-content-between">
-        <div class="my-auto">
-          <h2 class="align-left mb-0">Casos em Alagoas</h2>
+      <div class="">
+        <div class="title-container my-auto">
+          <h2 class="mb-0">Casos em Alagoas</h2>
         </div>
-        <div class="p-0">
+        <div class="buttons-container p-0">
           <b-button
             v-on:click="changeMap('confirmedCases')"
             class="m-1 btn-confirmed"
