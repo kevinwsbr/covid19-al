@@ -2,14 +2,14 @@
   <div id="app">
     <b-container class="main-container">
       <header>
-        <b-row class="mt-5 mb-4">
+        <b-row class="mt-5 mb-4 header-row">
           <b-col>
             <img
               draggable="false"
               alt="Brasão do Estado de Alagoas"
               src="./assets/al.svg"
             />
-            <h1 class="mb-0">Painel COVID-19 Alagoas</h1>
+            <h1>Painel COVID-19 Alagoas</h1>
             <span>Atualizado em </span>
             <div v-if="!date" class="placeholder wave">
               <div class="line"></div>
@@ -50,8 +50,8 @@
             <b-card class="chart-card" header-tag="header">
               <template v-slot:header>
                 <div class="d-flex justify-content-between">
-                  <div class="my-auto">
-                    <h2 class="align-left mb-0">Casos novos por dia</h2>
+                  <div class="my-auto w-100">
+                    <h2 class=" mb-0">Casos novos por dia</h2>
                   </div>
                 </div>
               </template>
@@ -62,8 +62,8 @@
             <b-card class="chart-card" header-tag="header">
               <template v-slot:header>
                 <div class="d-flex justify-content-between">
-                  <div class="my-auto">
-                    <h2 class="align-left mb-0">Casos acumulados</h2>
+                  <div class="my-auto w-100">
+                    <h2 class=" mb-0">Casos acumulados</h2>
                   </div>
                 </div>
               </template>
@@ -202,44 +202,14 @@ h2 {
   border: 1px solid #dbe9f5;
 }
 
-header {
-  h1 {
-    font-weight: 800;
-    font-size: 1.6rem;
-    line-height: 34px;
-    letter-spacing: -0.05rem;
-    color: #172b3e;
-  }
-  span {
-    color: #607d8b;
-    font-weight: 500;
-    letter-spacing: -0.02rem;
-    float: left;
-  }
-  img {
-    max-height: 55px;
-    float: left;
-    margin-right: 0.8em;
-  }
-}
-footer {
-  span {
-    font-weight: 700;
-    letter-spacing: -0.84px;
-    color: #172b3e;
-    &:first-of-type {
-      font-weight: 500;
-      color: #8498ae;
-    }
-  }
-}
 @media screen and (max-width: 576px) {
   .mb-4 {
     margin-bottom: 1rem !important;
   }
 }
 
-.variable, .placeholder {
+.variable,
+.placeholder {
   margin: 0 0.2rem;
 }
 
@@ -291,6 +261,14 @@ footer {
 </style>
 
 <style lang="scss">
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgb(23, 43, 62) !important;
+}
 h2 {
   font-size: 1.2rem;
   font-weight: 600;
@@ -321,5 +299,88 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
+}
+
+header {
+  h1 {
+    font-weight: 800;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    line-height: 34px;
+    letter-spacing: -0.05rem;
+    color: #172b3e;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  span {
+    color: #607d8b;
+    font-weight: 500;
+    letter-spacing: -0.02rem;
+    float: left;
+  }
+  img {
+    max-height: 55px;
+    float: left;
+    margin-right: 0.8em;
+  }
+}
+footer {
+  span {
+    font-weight: 700;
+    letter-spacing: -0.84px;
+    color: #172b3e;
+    &:first-of-type {
+      font-weight: 500;
+      color: #8498ae;
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  header {
+    h1 {
+      font-size: 1.3rem;
+      margin-bottom: -5px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h2 {
+    text-align: center;
+  }
+  header {
+    .header-row {
+      margin: 2rem 0 !important;
+    }
+  }
+  .buttons-container {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.3em;
+    button {
+      border-radius: 1rem;
+      padding: 1em;
+      line-height: 0.2em;
+    }
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .title-container {
+    float: left;
+    h2 {
+      padding: 0.2em 0;
+    }
+  }
+  .buttons-container {
+    float: right;
+  }
+}
+
+.card-header {
+  border-bottom: 1px solid #dbe9f5 !important;
 }
 </style>
