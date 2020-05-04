@@ -10,16 +10,18 @@
               src="./assets/al.svg"
             />
             <h1>Painel COVID-19 Alagoas</h1>
-            <span>Atualizado em </span>
-            <div v-if="!date" class="placeholder wave">
-              <div class="line"></div>
+            <div class="subtitle-container">
+              <span>Atualizado em </span>
+              <div v-if="!date" class="placeholder wave">
+                <div class="line"></div>
+              </div>
+              <span class="variable">{{ date }}</span> <span> às </span>
+              <div v-if="!time" class="placeholder wave">
+                <div class="line"></div>
+              </div>
+              <span class="variable">{{ time }}</span
+              ><span>h</span>
             </div>
-            <span class="variable">{{ date }}</span> <span> às </span>
-            <div v-if="!time" class="placeholder wave">
-              <div class="line"></div>
-            </div>
-            <span class="variable">{{ time }}</span
-            ><span>h</span>
           </b-col>
         </b-row>
       </header>
@@ -63,7 +65,7 @@
               <template v-slot:header>
                 <div class="d-flex justify-content-between">
                   <div class="my-auto w-100">
-                    <h2 class=" mb-0">Casos acumulados</h2>
+                    <h2 class=" mb-0">Casos acumulados de COVID-19</h2>
                   </div>
                 </div>
               </template>
@@ -304,8 +306,8 @@ body::-webkit-scrollbar-thumb {
 header {
   h1 {
     font-weight: 800;
-    margin-bottom: 0;
-    font-size: 1.6rem;
+    margin-bottom: -0.3rem;
+    font-size: 1.5rem;
     line-height: 34px;
     letter-spacing: -0.05rem;
     color: #172b3e;
@@ -337,16 +339,31 @@ footer {
   }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 375px) {
   header {
+    text-align: center;
+    .subtitle-container {
+      width: 222px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      height: 25px;
+    }
+    img {
+      float: none;
+      margin: 0 auto;
+    }
     h1 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: -5px;
     }
   }
 }
 
 @media screen and (max-width: 420px) {
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: -5px;
+  }
   h2 {
     text-align: center;
   }

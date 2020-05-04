@@ -3,7 +3,7 @@
     <template v-slot:header>
       <div class="d-flex justify-content-between">
         <div class="my-auto w-100">
-          <h2 class="mb-0">Leitos para COVID-19</h2>
+          <h2 class="mb-0">Leitos reservados para COVID-19</h2>
         </div>
       </div>
     </template>
