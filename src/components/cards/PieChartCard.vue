@@ -30,7 +30,9 @@ export default {
   components: {
     DataPie,
   },
-  async created() {
+
+  async mounted() {
+    //await this.updateVacancies();
     //const response = await fetch("./res.json");
   },
 };

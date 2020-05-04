@@ -11,7 +11,7 @@ export default {
         text: "",
         fontSize: 14,
         padding: 8,
-        fontFamily: '"Open Sans", sans-serif'
+        fontFamily: '"Open Sans", sans-serif',
       },
       responsive: true,
       maintainAspectRatio: false,
@@ -20,16 +20,18 @@ export default {
         padding: 8,
         labels: {
           usePointStyle: true,
-          boxWidth: 9
-        }
-      }
-    }
+          boxWidth: 9,
+        },
+      },
+    },
   }),
   mounted() {
     this.options.title.text = this.chartdata.datasets[0].title;
 
+    this.chartdata.datasets[0].data[1] -= this.chartdata.datasets[0].data[0];
+
     this.renderChart(this.chartdata, this.options);
-  }
+  },
 };
 </script>
 
