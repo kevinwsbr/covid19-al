@@ -2,20 +2,20 @@
   <b-card class="pie-card" header-tag="header">
     <template v-slot:header>
       <div class="d-flex justify-content-between">
-        <div class="my-auto">
-          <h2 class="align-left mb-0">Leitos para COVID-19</h2>
+        <div class="my-auto w-100">
+          <h2 class="mb-0">Leitos reservados para COVID-19</h2>
         </div>
       </div>
     </template>
     <b-row>
-      <b-col class="px-5 py-1 my-2" cols="12" md="4">
-        <DataPie :chartdata="chartdata"></DataPie>
-      </b-col>
-      <b-col class="px-5 py-1 my-2" cols="12" md="4">
-        <DataPie :chartdata="chartdata2"></DataPie>
-      </b-col>
-      <b-col class="px-5 py-1 my-2" cols="12" md="4">
-        <DataPie :chartdata="chartdata3"></DataPie>
+      <b-col
+        v-for="item in vacancies"
+        :key="item.datasets[0].title"
+        class="px-5 py-1 my-2 inner-pie-card"
+        cols="12"
+        md="4"
+      >
+        <DataPie :chartdata="item"></DataPie>
       </b-col>
     </b-row>
   </b-card>
@@ -26,57 +26,15 @@ import DataPie from "../DataPie.vue";
 
 export default {
   name: "PieChartCard",
+  props: ["vacancies"],
   components: {
-    DataPie
+    DataPie,
   },
-  data() {
-    return {
-      chartdata: {
-        labels: ["Utilizados", "Disponíveis"],
-        datasets: [
-          {
-            title: "Leitos clínicos",
-            backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [91, 239-91],
-            borderWidth: 1
-          }
-        ]
-      },
-      chartdata2: {
-        labels: ["Utilizados", "Disponíveis"],
-        datasets: [
-          {
-            title: "UTI Intermediária",
-            backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [8, 31-8],
-            borderWidth: 1
-          }
-        ]
-      },
-      chartdata3: {
-        labels: ["Utilizados", "Disponíveis"],
-        datasets: [
-          {
-            title: "UTI Avançada",
-            backgroundColor: ["#e74c3c", "#27ae60"],
-            data: [53, 130-53],
-            borderWidth: 1
-          }
-        ]
-      }
-    };
-  },
-  methods: {
-    changeMap(type) {
-      if (type !== this.type) this.type = type;
-    }
-  },
-  async created() {
+
+  async mounted() {
+    //await this.updateVacancies();
     //const response = await fetch("./res.json");
-    //const data = await response.json();
-    //this.cards = data;
-    //console.log(this.cards);
-  }
+  },
 };
 </script>
 
@@ -187,6 +145,11 @@ h2 {
   box-shadow: 0 4px 6px 0 rgba(31, 70, 88, 0.04);
   background: #fff;
   border: 1px solid #dbe9f5;
+}
+@media screen and (max-width: 420px) {
+  .inner-pie-card {
+    padding: 0 6rem !important;
+  }
 }
 @media screen and (min-width: 768px) {
   .card-body {

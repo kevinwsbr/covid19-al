@@ -18,7 +18,7 @@ export default {
           pointStyle: "circle",
           pointBorderColor: "#f49e39",
           pointRadius: 2,
-          pointBackgroundColor: "#f49e39"
+          pointBackgroundColor: "#f49e39",
         },
         {
           label: "Óbitos",
@@ -30,9 +30,9 @@ export default {
           pointStyle: "circle",
           pointBorderColor: "#3597db",
           pointRadius: 2,
-          pointBackgroundColor: "#3597db"
-        }
-      ]
+          pointBackgroundColor: "#3597db",
+        },
+      ],
     },
     options: {
       responsive: true,
@@ -41,25 +41,45 @@ export default {
         position: "bottom",
         labels: {
           usePointStyle: true,
-          boxWidth: 7
-        }
+          boxWidth: 7,
+        },
       },
       scales: {
+        yAxes: [
+          {
+            gridLines: {
+              display: true,
+              color: "#f1f3f6",
+            },
+            ticks: {
+              fontColor: "#8d8e90",
+              fontSize: 11,
+            },
+          },
+        ],
         xAxes: [
           {
             type: "time",
+            ticks: {
+              fontColor: "#8d8e90",
+              fontSize: 11,
+            },
+            gridLines: {
+              display: true,
+              color: "#f1f3f6",
+            },
             time: {
               parser: "YYYY-MM-DD",
               unit: "day",
-              unitStepSize: 2,
+              unitStepSize: 1,
               displayFormats: {
-                day: "D/M"
-              }
-            }
-          }
-        ]
-      }
-    }
+                day: "DD/MM",
+              },
+            },
+          },
+        ],
+      },
+    },
   }),
 
   methods: {
@@ -74,7 +94,7 @@ export default {
           let flag = false;
 
           if (vm.type === "totalCases") {
-            results.data.forEach(el => {
+            results.data.forEach((el) => {
               if (el[1] === "AL") {
                 if (el[4] != 0 || el[6] != 0) {
                   flag = true;
@@ -90,7 +110,7 @@ export default {
             vm.chartdata.datasets[0].data = confirmed;
             vm.chartdata.datasets[1].data = deaths;
           } else {
-            results.data.forEach(el => {
+            results.data.forEach((el) => {
               if (el[1] === "AL") {
                 if (el[3] != 0 || el[5] != 0) {
                   flag = true;
@@ -110,14 +130,14 @@ export default {
           vm.chartdata.labels = dates;
 
           vm.renderChart(vm.chartdata, vm.options);
-        }
+        },
       });
-    }
+    },
   },
 
   mounted() {
     this.readFile();
-  }
+  },
 };
 </script>
 

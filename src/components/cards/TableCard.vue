@@ -2,14 +2,25 @@
   <b-card class="table-card" header-tag="header">
     <template v-slot:header>
       <div class="d-flex justify-content-between">
-        <div class="my-auto">
-          <h2 class="align-left mb-0">Casos por município</h2>
+        <div class="my-auto w-100">
+          <h2 class=" mb-0">Casos por município</h2>
         </div>
       </div>
     </template>
-    <b-table sticky-header :items="items"></b-table>
+    <b-table sticky-header :fields="fields" :items="cities"></b-table>
+    <div v-if="!cities.length" class="loader-container">
+      <div v-for="i in 9" :key="i" class="placeholder d-flex wave">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
     <p>
-      <b>Nota:</b> a diferença entre os números totais e os números apresentados nesta tabela corresponde aos casos registrados em Alagoas referentes a pessoas que residem em outros estados.
+      <b>Nota:</b> a diferença entre os números totais e os números apresentados
+      nesta tabela corresponde aos casos registrados em Alagoas referentes a
+      pessoas que residem em outros estados.
     </p>
   </b-card>
 </template>
@@ -17,212 +28,50 @@
 <script>
 export default {
   name: "TableCard",
+  props: ["cities"],
   data() {
     return {
-      items: [
-        { Cidade: "Anadia", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" },
+      filteredCities: [],
+      fields: [
         {
-          Cidade: "Arapiraca",
-          Confirmados: 21,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Atalaia", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Barra de Santo Antônio",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
+          key: "name",
+          label: "",
+          //sortable: true
+          formatter: "formatName",
         },
         {
-          Cidade: "Barra de São Miguel",
-          Confirmados: 4,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Batalha", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Boca da Mata",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Branquinha", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Campo Alegre", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Capela", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Colônia Leopoldina", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Coruripe", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Delmiro Gouveia",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
+          key: "confirmedCases",
+          label: "Confirmados",
+          //sortable: false
         },
         {
-          Cidade: "Ibateguara",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
+          key: "deaths",
+          label: "Óbitos",
+          //sortable: false
         },
         {
-          Cidade: "Joaquim Gomes",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
+          key: "letality",
+          label: "Letalidade",
+          formatter: "addPercentage",
+          //sortable: false
         },
-        {
-          Cidade: "Junqueiro",
-          Confirmados: 6,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Lagoa da Canoa",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Limoeiro de Anadia",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Maceió",
-          Confirmados: 1008,
-          Óbitos: 38,
-          Letalidade: 3.7 + "%"
-        },
-        {
-          Cidade: "Maragogi",
-          Confirmados: 5,
-          Óbitos: 1,
-          Letalidade: 20 + "%"
-        },
-        {
-          Cidade: "Marechal Dedoro",
-          Confirmados: 33,
-          Óbitos: 2,
-          Letalidade: 6 + "%"
-        },
-        {
-          Cidade: "Maribondo",
-          Confirmados: 2,
-          Óbitos: 1,
-          Letalidade: 50 + "%"
-        },
-        {
-          Cidade: "Matriz do Camaragibe",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        { Cidade: "Murici", Confirmados: 20, Óbitos: 1, Letalidade: 5 + "%" },
-        { Cidade: "Novo Lino", Confirmados: 1, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Olho D'Água das Flores",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Palestina",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Palmeira dos Índios",
-          Confirmados: 12,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Paripueira",
-          Confirmados: 1,
-          Óbitos: 1,
-          Letalidade: 100 + "%"
-        },
-        {
-          Cidade: "Paulo Jacinto",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Penedo",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Piaçabuçu",
-          Confirmados: 2,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Pilar", Confirmados: 5, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "Porto Calvo",
-          Confirmados: 2,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Porto Real do Colégio",
-          Confirmados: 1,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Rio Largo",
-          Confirmados: 27,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "Santa Luzia do Norte",
-          Confirmados: 5,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "São Miguel dos Campos",
-          Confirmados: 5,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        {
-          Cidade: "São Miguel dos Milagres",
-          Confirmados: 2,
-          Óbitos: 1,
-          Letalidade: 50 + "%"
-        },
-        {
-          Cidade: "São Sebastião",
-          Confirmados: 4,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Satuba", Confirmados: 17, Óbitos: 0, Letalidade: 0 + "%" },
-        { Cidade: "Taquarana", Confirmados: 2, Óbitos: 0, Letalidade: 0 + "%" },
-        {
-          Cidade: "União dos Palmares",
-          Confirmados: 5,
-          Óbitos: 0,
-          Letalidade: 0 + "%"
-        },
-        { Cidade: "Viçosa", Confirmados: 1, Óbitos: 1, Letalidade: 100 + "%" }
-      ]
+      ],
     };
   },
-  async created() {
-    //const response = await fetch("./res.json");
-    //const data = await response.json();
-    //this.cards = data;
-    //console.log(this.cards);
-  }
+  methods: {
+    formatName(text) {
+      text = text
+        .toLowerCase()
+        .split(" ")
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(" ");
+      return text;
+    },
+    addPercentage(text) {
+      return text + "%";
+    },
+  },
+  mounted() {},
 };
 </script>
 
@@ -288,8 +137,12 @@ div::-webkit-scrollbar-thumb {
     color: #fff !important;
   }
 }
+
+.table td {
+  border-top: 1px solid #dbe9f5 !important;
+}
 </style>
-<style scoped>
+<style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 .card-map {
   padding: 0;
@@ -315,6 +168,7 @@ table {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
+
 table::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
 }
@@ -327,5 +181,50 @@ p {
   font-size: 58%;
   margin: 1em;
   text-align: justify;
+}
+
+.placeholder {
+  width: 100%;
+  height: 34px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.placeholder .line {
+  width: 65%;
+  height: 10px;
+  margin: auto 1.5rem;
+}
+
+.placeholder .line:nth-child(2),
+.line:nth-child(3),
+.line:nth-child(4) {
+  width: 35%;
+  height: 10px;
+}
+
+.placeholder.wave div {
+  animation: wave 1s infinite linear forwards;
+  -webkit-animation: wave 1s infinite linear forwards;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+}
+
+@keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@-webkit-keyframes wave {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
 }
 </style>
