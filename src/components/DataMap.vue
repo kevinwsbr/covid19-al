@@ -210,4 +210,10 @@ export default {
     line-height: 19px;
   }
 }
+
+@media screen and (min-width: 420px) {
+  .info div {
+    margin: 3px 0;
+  }
+}
 </style>
