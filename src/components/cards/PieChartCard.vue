@@ -11,7 +11,7 @@
       <b-col
         v-for="item in vacancies"
         :key="item.datasets[0].title"
-        class="px-5 py-1 my-2"
+        class="px-5 py-1 my-2 inner-pie-card"
         cols="12"
         md="4"
       >
@@ -145,6 +145,11 @@ h2 {
   box-shadow: 0 4px 6px 0 rgba(31, 70, 88, 0.04);
   background: #fff;
   border: 1px solid #dbe9f5;
+}
+@media screen and (max-width: 420px) {
+  .inner-pie-card {
+    padding: 0 6rem !important;
+  }
 }
 @media screen and (min-width: 768px) {
   .card-body {

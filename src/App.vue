@@ -307,7 +307,7 @@ header {
   h1 {
     font-weight: 800;
     margin-bottom: -0.3rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 34px;
     letter-spacing: -0.05rem;
     color: #172b3e;
@@ -335,6 +335,12 @@ footer {
     &:first-of-type {
       font-weight: 500;
       color: #8498ae;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    span:first-of-type {
+      font-size: 0.8rem;
     }
   }
 }
@@ -386,6 +392,11 @@ footer {
 }
 
 @media screen and (min-width: 420px) {
+  header {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
   .title-container {
     float: left;
     h2 {

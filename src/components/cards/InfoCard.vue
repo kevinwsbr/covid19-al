@@ -26,7 +26,7 @@ export default {
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-  letter-spacing: -1.29px;
+  letter-spacing: -0.5px;
   color: var(--cardColor);
 }
 .title {

@@ -5,7 +5,12 @@
     </div>
     <l-map :zoom="zoom" :center="center" style="height: 500px; width: 100%">
       <l-tile-layer :url="url" :attribution="attribution" />
-      <l-geo-json v-if="show" :geojson="geojson" :options="options" :options-style="styleFunction" />
+      <l-geo-json
+        v-if="show"
+        :geojson="geojson"
+        :options="options"
+        :options-style="styleFunction"
+      />
       <l-control position="bottomright">
         <div ref="chart-legend" class="info legend"></div>
       </l-control>
@@ -19,13 +24,13 @@ import { LMap, LControl, LTileLayer, LGeoJson } from "vue2-leaflet";
 export default {
   name: "DataMap",
   props: {
-    mapType: String
+    mapType: String,
   },
   components: {
     LMap,
     LControl,
     LTileLayer,
-    LGeoJson
+    LGeoJson,
   },
   watch: {
     /*mapType: function(newType) {
@@ -44,7 +49,7 @@ export default {
       fillColor: "#e4ce7f",
       url:
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
-      attribution: "&copy; OpenStreetMap"
+      attribution: "&copy; OpenStreetMap",
     };
   },
   methods: {
@@ -135,12 +140,12 @@ export default {
           { permanent: false, sticky: true }
         );
       };
-    }
+    },
   },
   computed: {
     options() {
       return {
-        onEachFeature: this.onEachFeatureFunction(this.mapType)
+        onEachFeature: this.onEachFeatureFunction(this.mapType),
       };
     },
     styleFunction() {
@@ -151,20 +156,22 @@ export default {
           color: "#fff",
           opacity: 1,
           fillColor: "#fff", //this.getColor(feature.properties.confirmedCases),
-          fillOpacity: 1
+          fillOpacity: 1,
         };
       };
-    }
+    },
   },
   async created() {
     this.loading = true;
 
-    await this.axios.get("https://api.kevinws.com/cities/map").then(response => {
-      this.geojson = response.data;
-    });
+    await this.axios
+      .get("https://api.kevinws.com/cities/map")
+      .then((response) => {
+        this.geojson = response.data;
+      });
 
     this.loading = false;
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -184,11 +191,6 @@ export default {
   height: 18px;
   float: left;
   margin-right: 8px;
-}
-.legend {
-  div {
-    margin: 3px;
-  }
 }
 .info {
   padding: 6px 8px;
