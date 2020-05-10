@@ -44,6 +44,13 @@ export default {
           boxWidth: 7,
         },
       },
+      tooltips: {
+        callbacks: {
+          title: function(tooltipItem) {
+            return tooltipItem[0].xLabel.split('-').reverse().join('/').replace("/2020", "");
+          },
+        },
+      },
       scales: {
         yAxes: [
           {
