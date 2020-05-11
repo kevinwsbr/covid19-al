@@ -7,7 +7,7 @@
         </div>
       </div>
     </template>
-    <b-row>
+    <b-row class="mx-2">
       <b-col
         v-for="item in vacancies"
         :key="item.datasets[0].title"
@@ -15,23 +15,31 @@
         cols="12"
         md="4"
       >
-        <DataPie :chartdata="item"></DataPie>
+        <DataPie :chartdata="vacancies" />
       </b-col>
+      <!-- <b-col>
+        <b-row v-for="i in 3" :key="i">
+          <b-col><BarChart /></b-col>
+        </b-row>
+      </b-col> -->
     </b-row>
   </b-card>
 </template>
 
 <script>
-import DataPie from "../DataPie.vue";
+import DataPie from "../DataPie";
+//import BarChart from "../BarChart";
 
 export default {
   name: "PieChartCard",
   props: ["vacancies"],
   components: {
     DataPie,
+   // BarChart,
   },
 
-  async mounted() {
+  mounted() {
+    console.log(this.vacancies);
     //await this.updateVacancies();
     //const response = await fetch("./res.json");
   },
