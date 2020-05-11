@@ -15,7 +15,7 @@
         cols="12"
         md="4"
       >
-        <DataPie :chartdata="vacancies" />
+        <DataPie :chartdata="item" />
       </b-col>
       <!-- <b-col>
         <b-row v-for="i in 3" :key="i">
