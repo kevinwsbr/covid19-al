@@ -32,7 +32,6 @@ export default {
 <style lang="scss" scoped>
 h3 {
   font-size: 1rem;
-  margin-top: 1rem;
   font-weight: 500;
   line-height: 1.2;
 }

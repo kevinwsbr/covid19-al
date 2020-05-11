@@ -7,21 +7,17 @@
         </div>
       </div>
     </template>
-    <b-row class="mx-2 mb-2">
-      <b-col
-        v-for="item in vacancies"
-        :key="item.datasets[0].title"
-        class="px-5 py-1 my-2 inner-pie-card"
-        cols="12"
-        md="4"
-      >
-        <DataPie :chartdata="item" />
+    <b-row class="mx-2 mb-4">
+      <b-col class="px-5 py-1 my-2 inner-pie-card" cols="12" md="4">
+        <DataPie v-if="activeVacancies" :chartdata="activeVacancies" />
       </b-col>
 
-      <b-col>
-        <b-row v-for="item in vacancies" :key="item.datasets[0].title">
-          <b-col><BarChart :chartdata="item"/></b-col>
-        </b-row>
+      <b-col class="bar-container">
+        <div class="w-100">
+          <b-row v-for="item in bar" :key="item.datasets[0].title">
+            <b-col><BarChart :chartdata="item"/></b-col>
+          </b-row>
+        </div>
       </b-col>
     </b-row>
   </b-card>
@@ -33,18 +29,20 @@ import BarChart from "../BarChart";
 
 export default {
   name: "PieChartCard",
-  props: ["vacancies"],
+  props: ["pie", "bar"],
   components: {
     DataPie,
     BarChart,
   },
   computed: {
     activeVacancies() {
-      return this.vacancies[0];
+      if (this.pie) {
+        return this.pie[0];
+      }
+      return null;
     },
   },
-  async mounted() {
-    await console.log(this.vacancies);
+  mounted() {
     //await this.updateVacancies();
     //const response = await fetch("./res.json");
   },
@@ -168,5 +166,13 @@ h2 {
   .card-body {
     max-height: 400px;
   }
+}
+.bar-container {
+  display: flex;
+  align-items: center;
+}
+
+.row:nth-of-type(n + 2) > div >>> h3 {
+  margin-top: 1rem;
 }
 </style>

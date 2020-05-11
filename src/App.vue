@@ -75,7 +75,7 @@
         </b-row>
         <b-row class="mb-3">
           <b-col class="mb-4">
-            <PieChartCard :vacancies="vacancies" />
+            <PieChartCard v-if="vacancies" :pie="vacancies" :bar="vacancies" />
           </b-col>
         </b-row>
       </section>
@@ -161,14 +161,17 @@ export default {
     },
   },
   mounted() {
-    this.axios.get("https://api.kevinws.com/stats/").then((response) => {
-      this.results = response.data;
-      this.cities = this.results.cities;
-      this.date = this.results.date;
-      this.time = this.results.time;
-      this.vacancies = this.results.vacancies;
-      this.updateCards(this.results);
-    });
+    this.axios
+      .get("https://api.kevinws.com/stats/")
+      .then((response) => {
+        this.results = response.data;
+        this.cities = this.results.cities;
+        this.date = this.results.date;
+        this.time = this.results.time;
+        this.vacancies = this.results.vacancies;
+        this.updateCards(this.results);
+      });
+      console.log(this.vacancies)
   },
   async created() {
     //const response = await fetch("./res.json");
