@@ -2,12 +2,12 @@
   <div>
     <b-row>
       <b-col>
-        <h2>Casos confirmados</h2>
+        <h2 class="section-title">Casos confirmados</h2>
       </b-col>
     </b-row>
     <b-row class="row-eq-height">
       <b-col class="mb-4" cols="12" xl="7">
-        <cases-map title="Casos confirmados" type="confirmedCases"  />
+        <cases-map title="Casos confirmados" type="confirmedCases" />
       </b-col>
       <b-col class="mb-4" cols="12" xl="5">
         <cases-table :cities="cities" />
@@ -46,7 +46,7 @@
 import MapCard from "../cards/MapCard";
 import TableCard from "../cards/TableCard";
 import LineChart from "../charts/LineChart";
-import BarChart from '../charts/BarChart';
+import BarChart from "../charts/BarChart";
 
 export default {
   name: "Cases",

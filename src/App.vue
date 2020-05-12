@@ -1,13 +1,11 @@
 <template>
   <b-container class="main-container">
     <dash-header :date="date" :time="time" />
-
     <section class="main">
-      <b-row>
-        <b-col class="mb-4" cols="12" md="6" v-for="i in 2" :key="i">
-          <InfoCard :data="cases" />
-        </b-col>
-      </b-row>
+      <section class="synthesis mb-3">
+        <info-section :cards="cards" />
+      </section>
+
       <section class="cases mb-3">
         <cases-section :cities="cities" />
       </section>
@@ -16,17 +14,8 @@
         <deaths-section :cities="cities" />
       </section>
 
-      <section class="vacancies mb-3">
-        <b-row>
-          <b-col>
-            <h2>Disponibilidade de leitos</h2>
-          </b-col>
-        </b-row>
-        <b-row class="mb-3">
-          <b-col class="mb-4">
-            <PieChartCard v-if="vacancies" :pie="vacancies" :bar="vacancies" />
-          </b-col>
-        </b-row>
+      <section class="beds mb-3">
+        <beds-section :beds="vacancies" />
       </section>
     </section>
     <dash-footer :version="version" />
@@ -34,21 +23,21 @@
 </template>
 
 <script>
-import InfoCard from "./components/cards/InfoCard";
-import PieChartCard from "./components/cards/PieChartCard";
+import Header from "./components/Header";
+import Info from "./components/sections/Info";
 import Cases from "./components/sections/Cases";
 import Deaths from "./components/sections/Deaths";
-import Header from "./components/Header";
+import Beds from "./components/sections/Beds";
 import Footer from "./components/Footer";
 export default {
   name: "App",
   components: {
-    InfoCard,
-    PieChartCard,
     "dash-header": Header,
     "dash-footer": Footer,
     "cases-section": Cases,
+    "info-section": Info,
     "deaths-section": Deaths,
+    "beds-section": Beds,
   },
   data() {
     return {
@@ -58,53 +47,88 @@ export default {
       results: [],
       cities: [],
       vacancies: [],
-      cards: ["", "", "", ""],
+      cards: [],
       cases: [],
     };
   },
   methods: {
     updateCards(data) {
-      this.cards.pop();
-      this.cards.pop();
+      this.cards = [
+        {
+          name: "Casos confirmados",
+          color: "#f49e39",
+          values: [],
+        },
+        {
+          name: "Óbitos confirmados",
+          color: "#3597db",
+          values: [],
+        },
+      ];
 
-      this.cases.push({
-        description: "Confirmados",
+      this.cards[0].values.push({
+        description: "Casos acumulados",
         value: data.confirmedCases | 0,
       });
 
-      this.cases.push({
+      this.cards[0].values.push({
         description: "Novos casos",
         value: data.suspiciousCases | 0,
       });
 
-      this.cases.push({
-        description: "Em investigação",
-        value: 30
+      this.cards[0].values.push({
+        description: "Casos recuperados",
+        value: 3230,
       });
 
-      this.cases.push({
+      this.cards[0].values.push({
         description: "Casos notificados",
-        value: 30
+        value: 350,
       });
 
-      this.cases.push({
+      this.cards[0].values.push({
+        description: "Casos suspeitos",
+        value: 330,
+      });
+
+      this.cards[0].values.push({
         description: "Casos descartados",
-        value: 30
+        value: 65756,
       });
 
-      this.cards.push({
-        id: 1,
-        title: "Casos confirmados",
-        color: "#f49e39",
-        value: data.confirmedCases | 0,
+      this.cards[1].values.push({
+        description: "Óbitos acumulados",
+        value: 350,
       });
 
-      this.cards.push({
-        id: 2,
-        title: "Óbitos",
-        color: "#3597db",
-        value: data.deaths | 0,
+      this.cards[1].values.push({
+        description: "Novos óbitos",
+        value: 330,
       });
+
+      this.cards[1].values.push({
+        description: "Taxa de letalidade",
+        value: 65756,
+      });
+
+      this.cards[1].values.push({
+        description: "Taxa de mortalidade",
+        value: 65756,
+      });
+
+      //   this.cards.push({
+      //     id: 1,
+      //     title: "Casos confirmados",
+      //     color: "#f49e39",
+      //     value: data.confirmedCases | 0,
+      //   });
+
+      //   this.cards.push({
+      //     id: 2,
+      //     title: "Óbitos",
+      //     color: "#3597db",
+      //     value: data.deaths | 0,
+      //   });
 
       //   this.cards.push({
       //     id: 3,
@@ -162,6 +186,33 @@ body {
     font-weight: 600;
     letter-spacing: -0.05rem;
   }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+
+    position: relative;
+    padding-left: 16px;
+    color: #18212f;
+    line-height: 22px;
+    letter-spacing: -0.84px;
+    &::before {
+      display: block;
+      content: "";
+      width: 6px;
+      height: 32px;
+      background: red;
+      box-shadow: red;
+      border-radius: 15px;
+      top: 50%;
+      left: 0;
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  }
+
   .card {
     border-radius: 1rem;
     box-shadow: 0 4px 6px 0 rgba(31, 70, 88, 0.04);

@@ -1,16 +1,16 @@
 <template>
-  <b-card>
+  <b-card v-if="data">
     <div class="title">
-      <span>Casos confirmados</span>
+      <span :style="{ 'color': data.color }">{{ data.name }}</span>
     </div>
     <!-- <div v-if="!data" class="placeholder wave">
       <div class="line"></div>
       <div class="line"></div>
     </div> -->
     <b-row>
-      <b-col cols="4" v-for="item in data" v-bind:key="item.description">
+      <b-col cols="4" v-for="item in data.values" v-bind:key="item.description">
         <div class="value">
-          <span>{{ item.value}}</span>
+          <span>{{ item.value | number('0,0', { thousandsSeparator: '.' }) }}</span>
           <small>{{ item.description }}</small>
         </div>
       </b-col>
@@ -44,9 +44,8 @@ export default {
 }
 
 .title {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   span {
-    color: blue;
     font-weight: 800;
     letter-spacing: -0.02rem;
     text-transform: uppercase;

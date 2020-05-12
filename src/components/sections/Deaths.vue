@@ -2,7 +2,7 @@
   <div>
     <b-row>
       <b-col>
-        <h2>Óbitos confirmados</h2>
+        <h2 class="section-title">Óbitos confirmados</h2>
       </b-col>
     </b-row>
     <b-row class="row-eq-height">
