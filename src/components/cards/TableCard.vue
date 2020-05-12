@@ -32,24 +32,20 @@ export default {
         {
           key: "name",
           label: "",
-          //sortable: true
           formatter: "formatName",
         },
         {
           key: "confirmedCases",
           label: "Confirmados",
-          //sortable: false
         },
         {
           key: "deaths",
           label: "Óbitos",
-          //sortable: false
         },
         {
           key: "letality",
           label: "Letalidade",
           formatter: "addPercentage",
-          //sortable: false
         },
       ],
     };
@@ -75,30 +71,12 @@ export default {
 .table-section {
   .card-body {
     padding: 0;
+    height: 405px;
   }
 
-  table {
-    height: 100%;
-    overflow-y: auto;
-  }
-  thead {
-    font-size: 0.8em;
-    text-align: center;
-  }
-
-  td {
-    padding: 0.5em !important;
-    font-size: 0.8em;
-    text-align: center;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-    &:first {
-      border-top: 1px solid white;
-    }
-  }
   .b-table-sticky-header {
     overflow-y: auto;
-    max-height: 350px !important;
+    max-height: 395px !important;
     margin-bottom: 0 !important;
   }
 
@@ -146,17 +124,50 @@ export default {
       background-position: 468px 0;
     }
   }
+}
+</style>
+<style lang="scss">
+div {
+  --scrollbarBG: #ffffff;
+  --thumbBG: #dee2e6;
+}
+div::-webkit-scrollbar {
+  width: 11px;
+}
 
-  .table thead th {
-    font-weight: 600 !important;
-    border: 0px !important;
-    &:first-of-type {
-      color: #fff !important;
+div::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+div::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.table {
+  height: 100%;
+  overflow-y: auto;
+  thead {
+    font-size: 0.8em;
+    text-align: center;
+
+    th {
+      font-weight: 600 !important;
+      border: 0px !important;
+      &:first-of-type {
+        color: #fff !important;
+      }
     }
   }
-
-  .table td {
-    border-top: 1px solid #dbe9f5 !important;
+  td {
+    padding: 0.5em !important;
+    font-size: 0.8em;
+    text-align: center;
+    vertical-align: top;
+    border-top: 1px solid #dbe9f5;
+    &:first {
+      border-top: 1px solid white;
+    }
   }
 }
 </style>

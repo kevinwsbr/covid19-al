@@ -3,26 +3,22 @@
     <b-card header-tag="header">
       <template v-slot:header>
         <div class="title-container my-auto">
-          <h2 class="mb-0">Casos em Alagoas</h2>
+          <h2 class="mb-0">{{ title }} em Alagoas</h2>
         </div>
       </template>
-      <DataMap :mapType="type" />
+      <data-map :mapType="type" />
     </b-card>
   </section>
 </template>
 
 <script>
-import DataMap from "../DataMap.vue";
+import DataMap from "../charts/DataMap";
 
 export default {
   name: "MapCard",
+  props: ["title", "type"],
   components: {
-    DataMap,
-  },
-  data() {
-    return {
-      type: "confirmedCases",
-    };
+    'data-map': DataMap,
   },
 };
 </script>

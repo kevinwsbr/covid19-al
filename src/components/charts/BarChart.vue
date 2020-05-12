@@ -1,8 +1,9 @@
 <script>
-import { Line } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 
 export default {
-  extends: Line,
+  name: "BarChart",
+  extends: Bar,
   props: ["type"],
   data: () => ({
     chartdata: {
@@ -11,26 +12,7 @@ export default {
         {
           label: "Confirmados",
           data: [],
-          borderColor: "#f49e39",
-          borderWidth: 2.5,
-          backgroundColor: "rgba(244, 158, 57, .5)",
-          fill: true,
-          pointStyle: "circle",
-          pointBorderColor: "#f49e39",
-          pointRadius: 2,
-          pointBackgroundColor: "#f49e39",
-        },
-        {
-          label: "Óbitos",
-          data: [],
-          borderColor: "#3597db",
-          borderWidth: 2.5,
-          backgroundColor: "rgba(53, 151, 219, .5)",
-          fill: true,
-          pointStyle: "circle",
-          pointBorderColor: "#3597db",
-          pointRadius: 2,
-          pointBackgroundColor: "#3597db",
+          backgroundColor: "#f49e39",
         },
       ],
     },
@@ -47,7 +29,11 @@ export default {
       tooltips: {
         callbacks: {
           title: function(tooltipItem) {
-            return tooltipItem[0].xLabel.split('-').reverse().join('/').replace("/2020", "");
+            return tooltipItem[0].xLabel
+              .split("-")
+              .reverse()
+              .join("/")
+              .replace("/2020", "");
           },
         },
       },
@@ -78,7 +64,7 @@ export default {
             time: {
               parser: "YYYY-MM-DD",
               unit: "day",
-              unitStepSize: 1,
+              unitStepSize: 3,
               displayFormats: {
                 day: "DD/MM",
               },
@@ -115,7 +101,7 @@ export default {
             });
 
             vm.chartdata.datasets[0].data = confirmed;
-            vm.chartdata.datasets[1].data = deaths;
+            //vm.chartdata.datasets[1].data = deaths;
           } else {
             results.data.forEach((el) => {
               if (el[1] === "AL") {

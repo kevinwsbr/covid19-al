@@ -2,15 +2,15 @@
   <div>
     <b-row>
       <b-col>
-        <h2>Casos confirmados</h2>
+        <h2>Óbitos confirmados</h2>
       </b-col>
     </b-row>
     <b-row class="row-eq-height">
-      <b-col class="mb-4" cols="12" xl="7">
-        <cases-map title="Casos confirmados" type="confirmedCases"  />
-      </b-col>
       <b-col class="mb-4" cols="12" xl="5">
-        <cases-table :cities="cities" />
+        <deaths-table :cities="cities" />
+      </b-col>
+      <b-col class="mb-4" cols="12" xl="7">
+        <deaths-map title="Óbitos" type="deaths" />
       </b-col>
     </b-row>
     <b-row>
@@ -19,11 +19,11 @@
           <template v-slot:header>
             <div class="d-flex justify-content-between">
               <div class="my-auto w-100">
-                <h2 class=" mb-0">Casos novos por data de notificação</h2>
+                <h2 class=" mb-0">Óbitos novos por data de notificação</h2>
               </div>
             </div>
           </template>
-          <cases-bar-chart type="confirmedCases" />
+          <deaths-bar-chart type="deaths" />
         </b-card>
       </b-col>
       <b-col class="mb-3">
@@ -31,11 +31,11 @@
           <template v-slot:header>
             <div class="d-flex justify-content-between">
               <div class="my-auto w-100">
-                <h2 class=" mb-0">Casos acumulados de COVID-19</h2>
+                <h2 class=" mb-0">Óbitos acumulados por COVID-19</h2>
               </div>
             </div>
           </template>
-          <cases-line-chart type="confirmedCases" />
+          <deaths-line-chart type="deaths" />
         </b-card>
       </b-col>
     </b-row>
@@ -46,16 +46,16 @@
 import MapCard from "../cards/MapCard";
 import TableCard from "../cards/TableCard";
 import LineChart from "../charts/LineChart";
-import BarChart from '../charts/BarChart';
+import BarChart from "../charts/BarChart";
 
 export default {
-  name: "Cases",
+  name: "Deaths",
   props: ["cities"],
   components: {
-    "cases-map": MapCard,
-    "cases-table": TableCard,
-    "cases-bar-chart": BarChart,
-    "cases-line-chart": LineChart,
+    "deaths-map": MapCard,
+    "deaths-table": TableCard,
+    "deaths-bar-chart": BarChart,
+    "deaths-line-chart": LineChart,
   },
 };
 </script>

@@ -20,12 +20,9 @@
       </section>
 
       <section class="deaths mb-3">
-        <b-row>
-          <b-col>
-            <h2>Óbitos confirmados</h2>
-          </b-col>
-        </b-row>
+        <deaths-section :cities="cities" />
       </section>
+
 
       <section class="vacancies mb-3">
         <b-row>
@@ -48,6 +45,7 @@
 import InfoCard from "./components/cards/InfoCard";
 import PieChartCard from "./components/cards/PieChartCard";
 import Cases from "./components/sections/Cases";
+import Deaths from "./components/sections/Deaths";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 export default {
@@ -58,6 +56,7 @@ export default {
     "dash-header": Header,
     "dash-footer": Footer,
     "cases-section": Cases,
+    "deaths-section": Deaths,
   },
   data() {
     return {

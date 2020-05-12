@@ -1,39 +1,10 @@
 <script>
-import { Bar } from "vue-chartjs";
+import { Line } from "vue-chartjs";
 
 export default {
-  extends: Bar,
+  extends: Line,
   props: ["type"],
   data: () => ({
-    chartdata: {
-      labels: [],
-      datasets: [
-        {
-          label: "Confirmados",
-          data: [],
-          borderColor: "#f49e39",
-          borderWidth: 2.5,
-          backgroundColor: "rgba(244, 158, 57, .5)",
-          fill: true,
-          pointStyle: "circle",
-          pointBorderColor: "#f49e39",
-          pointRadius: 2,
-          pointBackgroundColor: "#f49e39",
-        },
-        {
-          label: "Óbitos",
-          data: [],
-          borderColor: "#3597db",
-          borderWidth: 2.5,
-          backgroundColor: "rgba(53, 151, 219, .5)",
-          fill: true,
-          pointStyle: "circle",
-          pointBorderColor: "#3597db",
-          pointRadius: 2,
-          pointBackgroundColor: "#3597db",
-        },
-      ],
-    },
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -47,7 +18,11 @@ export default {
       tooltips: {
         callbacks: {
           title: function(tooltipItem) {
-            return tooltipItem[0].xLabel.split('-').reverse().join('/').replace("/2020", "");
+            return tooltipItem[0].xLabel
+              .split("-")
+              .reverse()
+              .join("/")
+              .replace("/2020", "");
           },
         },
       },
@@ -88,10 +63,44 @@ export default {
       },
     },
   }),
+  computed: {
+    currentDataset() {
+      let datasets = [];
+      if (this.type === "confirmedCases") {
+        datasets.push({
+          label: "Confirmados",
+          data: [],
+          borderColor: "#f49e39",
+          borderWidth: 2.5,
+          backgroundColor: "rgba(244, 158, 57, .5)",
+          fill: true,
+          pointStyle: "circle",
+          pointBorderColor: "#f49e39",
+          pointRadius: 2,
+          pointBackgroundColor: "#f49e39",
+        });
+      } else if (this.type === "deaths") {
+        datasets.push({
+          label: "Óbitos",
+          data: [],
+          borderColor: "#3597db",
+          borderWidth: 2.5,
+          backgroundColor: "rgba(53, 151, 219, .5)",
+          fill: true,
+          pointStyle: "circle",
+          pointBorderColor: "#3597db",
+          pointRadius: 2,
+          pointBackgroundColor: "#3597db",
+        });
+      }
+      return datasets;
+    },
+  },
 
   methods: {
     readFile() {
       let vm = this;
+
       this.$papa.parse("./state.csv", {
         download: true,
         complete: function(results) {
@@ -100,7 +109,7 @@ export default {
           let confirmed = [];
           let flag = false;
 
-          if (vm.type === "totalCases") {
+          if (vm.type === "confirmedCases") {
             results.data.forEach((el) => {
               if (el[1] === "AL") {
                 if (el[4] != 0 || el[6] != 0) {
@@ -109,14 +118,12 @@ export default {
                 if (flag) {
                   dates.push(el[2]);
                   confirmed.push(el[4]);
-                  deaths.push(el[6]);
                 }
               }
             });
 
-            vm.chartdata.datasets[0].data = confirmed;
-            vm.chartdata.datasets[1].data = deaths;
-          } else {
+            vm.currentDataset[0].data = confirmed;
+          } else if (vm.type == "deaths") {
             results.data.forEach((el) => {
               if (el[1] === "AL") {
                 if (el[3] != 0 || el[5] != 0) {
@@ -124,19 +131,19 @@ export default {
                 }
                 if (flag) {
                   dates.push(el[2]);
-                  confirmed.push(el[3]);
-                  deaths.push(el[5]);
+                  deaths.push(el[6]);
                 }
               }
             });
 
-            vm.chartdata.datasets[0].data = confirmed;
-            vm.chartdata.datasets.splice(1);
+            vm.currentDataset[0].data = deaths;
           }
 
-          vm.chartdata.labels = dates;
-
-          vm.renderChart(vm.chartdata, vm.options);
+          let chartdata = {
+            labels: dates,
+            datasets: vm.currentDataset,
+          };
+          vm.renderChart(chartdata, vm.options);
         },
       });
     },
