@@ -1,25 +1,42 @@
 <template>
-  <b-container class="main-container">
-    <dash-header :date="date" :time="time" />
-    <section class="main">
-      <section class="synthesis mb-3">
-        <info-section :cards="cards" />
-      </section>
+  <div>
+    <div>
+      <b-navbar sticky class="menu" type="dark">
+        <b-container>
+          <b-navbar-brand href="#">
+            <span><b>COVID-19</b> Alagoas</span>
+          </b-navbar-brand>
 
-      <section class="cases mb-3">
-        <cases-section :cities="cities" />
-      </section>
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item active href="#">Painel Geral</b-nav-item>
+            <b-nav-item href="#">Gastos</b-nav-item>
+            <b-nav-item href="#">Sobre</b-nav-item>
+          </b-navbar-nav>
+        </b-container>
+      </b-navbar>
+    </div>
+    <b-container class="main-container">
+      <dash-header :date="date" :time="time" />
+      <section class="main">
+        <section class="synthesis mb-3">
+          <info-section :cards="cards" />
+        </section>
 
-      <section class="deaths mb-3">
-        <deaths-section :cities="cities" />
-      </section>
+        <section class="cases mb-3">
+          <cases-section :cities="cities" />
+        </section>
 
-      <section class="beds mb-3">
-        <beds-section :beds="vacancies" />
+        <section class="deaths mb-3">
+          <deaths-section :cities="cities" />
+        </section>
+
+        <section class="beds mb-3">
+          <beds-section :beds="vacancies" />
+        </section>
       </section>
-    </section>
-    <dash-footer :version="version" />
-  </b-container>
+      <dash-footer :version="version" />
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -185,6 +202,30 @@ body {
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.05rem;
+  }
+
+  @media screen and (max-width: 576px) {
+    .menu {
+      .container {
+        display: flex;
+        flex-direction: column;
+        ul {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .menu {
+    background: #1a629d;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border: 1px solid rgba(28, 28, 28, 0.07);
+
+    .active {
+        font-weight: 800;
+        color: white;
+      }
   }
 
   .section-title {
