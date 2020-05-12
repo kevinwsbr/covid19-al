@@ -4,15 +4,8 @@
 
     <section class="main">
       <b-row>
-        <b-col
-          class="mb-4"
-          cols="12"
-          md="6"
-          xl="3"
-          v-for="card in cards"
-          :key="card.id"
-        >
-          <InfoCard :data="card" />
+        <b-col class="mb-4" cols="12" md="6" v-for="i in 2" :key="i">
+          <InfoCard :data="cases" />
         </b-col>
       </b-row>
       <section class="cases mb-3">
@@ -22,7 +15,6 @@
       <section class="deaths mb-3">
         <deaths-section :cities="cities" />
       </section>
-
 
       <section class="vacancies mb-3">
         <b-row>
@@ -67,14 +59,39 @@ export default {
       cities: [],
       vacancies: [],
       cards: ["", "", "", ""],
+      cases: [],
     };
   },
   methods: {
     updateCards(data) {
       this.cards.pop();
       this.cards.pop();
-      this.cards.pop();
-      this.cards.pop();
+
+      this.cases.push({
+        description: "Confirmados",
+        value: data.confirmedCases | 0,
+      });
+
+      this.cases.push({
+        description: "Novos casos",
+        value: data.suspiciousCases | 0,
+      });
+
+      this.cases.push({
+        description: "Em investigação",
+        value: 30
+      });
+
+      this.cases.push({
+        description: "Casos notificados",
+        value: 30
+      });
+
+      this.cases.push({
+        description: "Casos descartados",
+        value: 30
+      });
+
       this.cards.push({
         id: 1,
         title: "Casos confirmados",
@@ -89,19 +106,19 @@ export default {
         value: data.deaths | 0,
       });
 
-      this.cards.push({
-        id: 3,
-        title: "Recuperados",
-        color: "#58cd72",
-        value: data.recoveredCases | 0,
-      });
+      //   this.cards.push({
+      //     id: 3,
+      //     title: "Recuperados",
+      //     color: "#58cd72",
+      //     value: data.recoveredCases | 0,
+      //   });
 
-      this.cards.push({
-        id: 4,
-        title: "Letalidade",
-        color: "#9d5cb6",
-        value: ((data.deaths / data.confirmedCases) * 100).toFixed(1) + "%",
-      });
+      //   this.cards.push({
+      //     id: 4,
+      //     title: "Letalidade",
+      //     color: "#9d5cb6",
+      //     value: ((data.deaths / data.confirmedCases) * 100).toFixed(1) + "%",
+      //   });
     },
   },
   mounted() {
@@ -141,7 +158,7 @@ body {
     color: rgb(23, 43, 62) !important;
   }
   h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.05rem;
   }

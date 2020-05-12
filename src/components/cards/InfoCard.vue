@@ -1,15 +1,20 @@
 <template>
   <b-card>
     <div class="title">
-      <small>{{ data.title }}</small>
+      <span>Casos confirmados</span>
     </div>
-    <div v-if="!data" class="placeholder wave">
+    <!-- <div v-if="!data" class="placeholder wave">
       <div class="line"></div>
       <div class="line"></div>
-    </div>
-    <div v-if="data" class="value" :style="{ '--cardColor': data.color }">
-      <span>{{ data.value }}</span>
-    </div>
+    </div> -->
+    <b-row>
+      <b-col cols="4" v-for="item in data" v-bind:key="item.description">
+        <div class="value">
+          <span>{{ item.value}}</span>
+          <small>{{ item.description }}</small>
+        </div>
+      </b-col>
+    </b-row>
   </b-card>
 </template>
 
@@ -22,20 +27,30 @@ export default {
 </script>
 <style lang="scss" scoped>
 .value {
-  margin-right: 12px;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
-  letter-spacing: -0.5px;
-  color: var(--cardColor);
+  margin-top: 1rem;
+  span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    color: #242a2f;
+  }
+  small {
+    font-weight: 600;
+    color: #73777d;
+    letter-spacing: -0.5px;
+  }
 }
+
 .title {
-  margin-bottom: -5px;
-}
-.title > small {
-  font-weight: 600;
-  letter-spacing: 0.01rem;
-  text-transform: uppercase;
+    margin-bottom: .5rem;
+  span {
+    color: blue;
+    font-weight: 800;
+    letter-spacing: -0.02rem;
+    text-transform: uppercase;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
