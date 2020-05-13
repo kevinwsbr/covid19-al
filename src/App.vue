@@ -126,13 +126,13 @@ export default {
       this.cards[1].values.push({
         description: "Taxa de letalidade",
         percentage: true,
-        value: data.stats.letality | 0,
+        value: data.stats.letality,
       });
 
       this.cards[1].values.push({
         description: "Taxa de mortalidade",
         percentage: true,
-        value: data.stats.mortality | 0,
+        value: data.stats.mortality,
       });
 
       //   this.cards.push({
