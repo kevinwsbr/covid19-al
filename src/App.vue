@@ -85,52 +85,54 @@ export default {
 
       this.cards[0].values.push({
         description: "Casos acumulados",
-        value: data.confirmedCases | 0,
+        value: data.stats.confirmedCases | 0,
       });
 
       this.cards[0].values.push({
         description: "Novos casos",
-        value: data.suspiciousCases | 0,
+        value: data.stats.newCases | 0,
       });
 
       this.cards[0].values.push({
         description: "Casos recuperados",
-        value: 3230,
+        value: data.stats.recoveredCases | 0,
       });
 
       this.cards[0].values.push({
         description: "Casos notificados",
-        value: 350,
+        value: data.stats.totalCases | 0,
       });
 
       this.cards[0].values.push({
         description: "Casos suspeitos",
-        value: 330,
+        value: data.stats.suspiciousCases | 0,
       });
 
       this.cards[0].values.push({
         description: "Casos descartados",
-        value: 65756,
+        value: data.stats.discardedCases | 0,
       });
 
       this.cards[1].values.push({
         description: "Óbitos acumulados",
-        value: 350,
+        value: data.stats.deaths | 0,
       });
 
       this.cards[1].values.push({
         description: "Novos óbitos",
-        value: 330,
+        value: data.stats.newDeaths | 0,
       });
 
       this.cards[1].values.push({
         description: "Taxa de letalidade",
-        value: 65756,
+        percentage: true,
+        value: data.stats.letality | 0,
       });
 
       this.cards[1].values.push({
         description: "Taxa de mortalidade",
-        value: 65756,
+        percentage: true,
+        value: data.stats.mortality | 0,
       });
 
       //   this.cards.push({
@@ -206,6 +208,7 @@ body {
 
   @media screen and (max-width: 576px) {
     .menu {
+      padding: 0;
       .container {
         display: flex;
         flex-direction: column;
@@ -223,9 +226,9 @@ body {
     border: 1px solid rgba(28, 28, 28, 0.07);
 
     .active {
-        font-weight: 800;
-        color: white;
-      }
+      font-weight: 800;
+      color: white;
+    }
   }
 
   .section-title {

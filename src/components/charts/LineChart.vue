@@ -9,6 +9,7 @@ export default {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
+        display: false,
         position: "bottom",
         labels: {
           usePointStyle: true,
@@ -29,6 +30,12 @@ export default {
       scales: {
         yAxes: [
           {
+            scaleLabel: {
+              display: true,
+              labelString: "Registros acumulados",
+              fontFamily: "'Open Sans', sans-serif",
+              fontStyle: "600",
+            },
             gridLines: {
               display: true,
               color: "#f1f3f6",
@@ -41,6 +48,12 @@ export default {
         ],
         xAxes: [
           {
+            scaleLabel: {
+              display: true,
+              labelString: "Data de notificação",
+              fontFamily: "'Open Sans', sans-serif",
+              fontStyle: "600",
+            },
             type: "time",
             ticks: {
               fontColor: "#8d8e90",

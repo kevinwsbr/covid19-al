@@ -6,7 +6,7 @@
       </b-col>
     </b-row>
     <b-row class="mb-4">
-      <b-col cols="12" md="6" v-for="card in cards" :key="card.name">
+      <b-col class="mb-3" cols="12" md="6" v-for="card in cards" :key="card.name">
         <info-card :data="card" />
       </b-col>
     </b-row>

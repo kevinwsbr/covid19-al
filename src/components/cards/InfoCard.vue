@@ -1,22 +1,32 @@
 <template>
   <b-card v-if="data">
     <div class="title">
-      <span :style="{ 'color': data.color }">{{ data.name }}</span>
+      <span :style="{ color: data.color }">{{ data.name }}</span>
     </div>
     <!-- <div v-if="!data" class="placeholder wave">
       <div class="line"></div>
       <div class="line"></div>
     </div> -->
     <b-row>
-      <b-col cols="4" v-for="item in data.values" v-bind:key="item.description">
+      <b-col
+        cols="6"
+        sm="4"
+        v-for="item in data.values"
+        v-bind:key="item.description"
+      >
         <div class="value">
-          <span>{{ item.value | number('0,0', { thousandsSeparator: '.' }) }}</span>
+          <span v-if="!item.percentage">{{
+            item.value | number("0,0", { thousandsSeparator: "." })
+          }}</span>
+          <span v-else>{{
+            item.value + "%"
+          }}</span>
           <small>{{ item.description }}</small>
         </div>
       </b-col>
     </b-row>
-  </b-card>
-</template>
+  </b-card> </template
+>
 
 <script>
 export default {
