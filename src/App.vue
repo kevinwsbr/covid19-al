@@ -1,9 +1,14 @@
 <template>
   <div>
     <div>
-      <b-navbar sticky class="menu" type="dark">
+      <!-- <b-navbar sticky class="menu" type="dark">
         <b-container>
           <b-navbar-brand href="#">
+            <img
+              draggable="false"
+              alt="Brasão do Estado de Alagoas"
+              src="./assets/al.svg"
+            />
             <span><b>COVID-19</b> Alagoas</span>
           </b-navbar-brand>
 
@@ -13,7 +18,7 @@
             <b-nav-item href="#">Sobre</b-nav-item>
           </b-navbar-nav>
         </b-container>
-      </b-navbar>
+      </b-navbar> -->
     </div>
     <b-container class="main-container">
       <dash-header :date="date" :time="time" />
@@ -31,7 +36,7 @@
         </section>
 
         <section class="beds mb-3">
-          <beds-section :beds="vacancies" />
+          <beds-section :beds="beds" />
         </section>
       </section>
       <dash-footer :version="version" />
@@ -63,6 +68,7 @@ export default {
       time: "",
       results: [],
       cities: [],
+      beds: [],
       vacancies: [],
       cards: [],
       cases: [],
@@ -77,14 +83,14 @@ export default {
           values: [],
         },
         {
-          name: "Óbitos confirmados",
+          name: "Óbitos",
           color: "#3597db",
           values: [],
         },
       ];
 
       this.cards[0].values.push({
-        description: "Casos acumulados",
+        description: "Casos confirmados",
         value: data.stats.confirmedCases | 0,
       });
 
@@ -114,7 +120,7 @@ export default {
       });
 
       this.cards[1].values.push({
-        description: "Óbitos acumulados",
+        description: "Óbitos",
         value: data.stats.deaths | 0,
       });
 
@@ -124,44 +130,16 @@ export default {
       });
 
       this.cards[1].values.push({
-        description: "Taxa de letalidade",
+        description: "Letalidade",
         percentage: true,
         value: data.stats.letality,
       });
 
       this.cards[1].values.push({
-        description: "Taxa de mortalidade",
-        percentage: true,
+        description: "Mortalidade",
+        text: true,
         value: data.stats.mortality,
       });
-
-      //   this.cards.push({
-      //     id: 1,
-      //     title: "Casos confirmados",
-      //     color: "#f49e39",
-      //     value: data.confirmedCases | 0,
-      //   });
-
-      //   this.cards.push({
-      //     id: 2,
-      //     title: "Óbitos",
-      //     color: "#3597db",
-      //     value: data.deaths | 0,
-      //   });
-
-      //   this.cards.push({
-      //     id: 3,
-      //     title: "Recuperados",
-      //     color: "#58cd72",
-      //     value: data.recoveredCases | 0,
-      //   });
-
-      //   this.cards.push({
-      //     id: 4,
-      //     title: "Letalidade",
-      //     color: "#9d5cb6",
-      //     value: ((data.deaths / data.confirmedCases) * 100).toFixed(1) + "%",
-      //   });
     },
   },
   mounted() {
@@ -169,6 +147,7 @@ export default {
       this.results = response.data;
       this.cities = this.results.cities;
       this.date = this.results.date;
+      this.beds = this.results.beds;
       this.time = this.results.time;
       this.vacancies = this.results.vacancies;
       this.updateCards(this.results);
@@ -221,13 +200,19 @@ body {
 
   .menu {
     background: #1a629d;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     border: 1px solid rgba(28, 28, 28, 0.07);
 
     .active {
       font-weight: 800;
       color: white;
+    }
+
+    img {
+      max-height: 2rem;
+      float: left;
+      margin-right: 0.4em;
     }
   }
 
@@ -246,14 +231,40 @@ body {
       content: "";
       width: 6px;
       height: 32px;
-      background: red;
-      box-shadow: red;
+
       border-radius: 15px;
       top: 50%;
       left: 0;
       position: absolute;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
+    }
+
+    &.purple {
+      &::before {
+        background: #9d5cb6;
+        box-shadow: 0 3px 8px 0px #9d5cb64f;
+      }
+    }
+    &.blue {
+      &::before {
+        background: #3597db;
+        box-shadow: 0 3px 8px 0px #3597db4d;
+      }
+    }
+
+    &.orange {
+      &::before {
+        background: #f49e39;
+        box-shadow: 0 3px 8px 0px #f49e394d;
+      }
+    }
+
+    &.green {
+      &::before {
+        background: #58cd72;
+        box-shadow: 0 3px 8px 0px rgba(88, 205, 114, 0.3);
+      }
     }
   }
 
@@ -269,9 +280,7 @@ body {
       font-size: 1.3rem;
       margin-bottom: -5px;
     }
-    h2 {
-      text-align: center;
-    }
+
     .buttons-container {
       height: 30px;
       display: flex;
@@ -288,6 +297,12 @@ body {
   @media screen and (max-width: 576px) {
     .mb-4 {
       margin-bottom: 1rem !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    h2:not(.section-title) {
+      text-align: center;
     }
   }
 

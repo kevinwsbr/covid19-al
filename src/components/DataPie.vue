@@ -29,12 +29,15 @@ export default {
         text: "Leitos disponíveis",
         fontSize: 14,
         padding: 8,
+        fontColor: "#172b3e",
+        fontStyle: 600,
         fontFamily: '"Open Sans", sans-serif',
       },
       responsive: true,
       maintainAspectRatio: false,
       legend: {
-        position: "bottom",
+        position: "bottom",fontColor: "#172b3e",
+        fontFamily: '"Open Sans", sans-serif',
         padding: 8,
         labels: {
           usePointStyle: true,
