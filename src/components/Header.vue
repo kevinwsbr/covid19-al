@@ -2,12 +2,8 @@
   <header>
     <b-row class="mt-5 mb-4 header-row">
       <b-col>
-        <img
-          draggable="false"
-          alt="Brasão do Estado de Alagoas"
-          src="../assets/al.svg"
-        />
-        <h1>Painel COVID-19 Alagoas</h1>
+        
+        <h1><b>Coronavírus</b> em Alagoas</h1>
         <div class="subtitle-container">
           <span>Atualizado em </span>
           <div v-if="!date" class="placeholder wave">
@@ -98,7 +94,7 @@ h2 {
 
 header {
   h1 {
-    font-weight: 800;
+    //font-weight: 800;
     margin-bottom: -0.3rem;
     font-size: 1.3rem;
     line-height: 34px;

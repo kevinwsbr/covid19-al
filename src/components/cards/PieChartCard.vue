@@ -8,13 +8,13 @@
       </div>
     </template>
     <b-row class="mx-2 mb-4">
-      <b-col class="px-5 py-1 my-2 inner-pie-card" cols="12" md="4">
-        <DataPie v-if="activeVacancies" :chartdata="activeVacancies" />
+      <b-col v-if="total" class="px-5 py-1 my-2 inner-pie-card" cols="12" md="4">
+        <DataPie :chartdata="total" />
       </b-col>
 
-      <b-col class="bar-container">
+      <b-col v-if="separated" class="bar-container">
         <div class="w-100">
-          <b-row v-for="item in bar" :key="item.datasets[0].title">
+          <b-row v-for="item in separated" :key="item.title">
             <b-col><BarChart :chartdata="item"/></b-col>
           </b-row>
         </div>
@@ -29,18 +29,10 @@ import BarChart from "../BarChart";
 
 export default {
   name: "PieChartCard",
-  props: ["pie", "bar"],
+  props: ["total", "separated"],
   components: {
     DataPie,
     BarChart,
-  },
-  computed: {
-    activeVacancies() {
-      if (this.pie) {
-        return this.pie[0];
-      }
-      return null;
-    },
   },
   mounted() {
     //await this.updateVacancies();
