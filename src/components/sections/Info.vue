@@ -2,7 +2,7 @@
   <div>
     <b-row>
       <b-col>
-        <h2 class="section-title">Síntese geral</h2>
+        <h2 class="section-title green">Síntese geral</h2>
       </b-col>
     </b-row>
     <b-row class="mb-4">
