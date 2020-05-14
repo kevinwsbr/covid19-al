@@ -49,6 +49,7 @@ export default {
         ],
         xAxes: [
           {
+            offset: true,
             scaleLabel: {
               display: true,
               labelString: "Data de notificação",
