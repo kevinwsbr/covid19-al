@@ -10,16 +10,19 @@
     <b-row>
       <b-col
         cols="6"
-        sm="4"
+        lg="4"
         v-for="item in data.values"
         v-bind:key="item.description"
       >
         <div class="value">
-          <span v-if="!item.percentage">{{
+          <span v-if="!item.percentage && !item.text">{{
             item.value | number("0,0", { thousandsSeparator: "." })
           }}</span>
-          <span v-else>{{
+          <span v-if="item.percentage">{{
             item.value + "%"
+          }}</span>
+          <span v-if="item.text">{{
+            item.value
           }}</span>
           <small>{{ item.description }}</small>
         </div>

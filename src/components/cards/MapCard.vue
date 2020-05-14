@@ -3,7 +3,7 @@
     <b-card header-tag="header">
       <template v-slot:header>
         <div class="title-container my-auto">
-          <h2 class="mb-0">{{ title }} em Alagoas</h2>
+          <h2 class="mb-0">Mapa de {{ title }}</h2>
         </div>
       </template>
       <data-map :mapType="type" />

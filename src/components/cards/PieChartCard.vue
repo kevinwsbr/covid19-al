@@ -8,7 +8,7 @@
       </div>
     </template>
     <b-row class="mx-2 mb-4">
-      <b-col v-if="total" class="px-5 py-1 my-2 inner-pie-card" cols="12" md="4">
+      <b-col v-if="total" class="py-1 my-2 inner-pie-card" cols="12" md="4">
         <DataPie :chartdata="total" />
       </b-col>
 
@@ -149,16 +149,31 @@ h2 {
   background: #fff;
   border: 1px solid #dbe9f5;
 }
-@media screen and (max-width: 420px) {
+
+@media screen and (max-width: 1024px) {
   .inner-pie-card {
-    padding: 0 6rem !important;
+    padding: 0 1.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .inner-pie-card {
+    padding: 0 2rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .card-body {
     max-height: 400px;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .inner-pie-card {
+    padding: 0 3.5rem;
+  }
+}
+
 .bar-container {
   display: flex;
   align-items: center;
