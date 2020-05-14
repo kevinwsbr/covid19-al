@@ -10,7 +10,7 @@
         <deaths-table :cities="cities" />
       </b-col>
       <b-col class="mb-4" cols="12" xl="7">
-        <deaths-map title="Óbitos" type="deaths" />
+        <deaths-map title="óbitos" type="deaths" />
       </b-col>
     </b-row>
     <b-row>

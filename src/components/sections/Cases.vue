@@ -7,7 +7,7 @@
     </b-row>
     <b-row class="row-eq-height">
       <b-col class="mb-4" cols="12" xl="7">
-        <cases-map title="Casos confirmados" type="confirmedCases" />
+        <cases-map title="casos confirmados" type="confirmedCases" />
       </b-col>
       <b-col class="mb-4" cols="12" xl="5">
         <cases-table :cities="cities" />
