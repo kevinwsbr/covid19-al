@@ -1,162 +1,67 @@
 <template>
-  <div>
-    <div>
-      <!-- <b-navbar sticky class="menu" type="dark">
-        <b-container>
-          <b-navbar-brand href="#">
-            <img
-              draggable="false"
-              alt="Brasão do Estado de Alagoas"
-              src="./assets/al.svg"
-            />
-            <span><b>COVID-19</b> Alagoas</span>
-          </b-navbar-brand>
+  <div id="app">
+    <b-navbar id="nav" sticky class="menu" type="dark">
+      <b-container>
+        <b-navbar-brand href="#">
+          <img
+            draggable="false"
+            alt="Brasão do Estado de Alagoas"
+            src="./assets/al.svg"
+          />
+          <span><b>COVID-19</b> Alagoas</span>
+        </b-navbar-brand>
 
-          <b-navbar-nav class="ml-auto">
-            <b-nav-item active href="#">Painel Geral</b-nav-item>
-            <b-nav-item href="#">Gastos</b-nav-item>
-            <b-nav-item href="#">Sobre</b-nav-item>
-          </b-navbar-nav>
-        </b-container>
-      </b-navbar> -->
-    </div>
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item active href="#"
+            ><router-link to="/">Painel Geral</router-link></b-nav-item
+          >
+          <b-nav-item href="#"
+            ><router-link to="/">Gastos</router-link></b-nav-item
+          >
+          <b-nav-item href="#"
+            ><router-link to="/sobre">Sobre</router-link></b-nav-item
+          >
+        </b-navbar-nav>
+      </b-container>
+    </b-navbar>
     <b-container class="main-container">
       <dash-header :date="date" :time="time" />
-      <section class="main">
-        <section class="synthesis mb-3">
-          <info-section :cards="cards" />
-        </section>
-
-        <section class="cases mb-3">
-          <cases-section :cities="cities" />
-        </section>
-
-        <section class="deaths mb-3">
-          <deaths-section :cities="cities" />
-        </section>
-
-        <section class="beds mb-3">
-          <beds-section :beds="beds" />
-        </section>
-      </section>
+      <router-view />
       <dash-footer :version="version" />
     </b-container>
   </div>
 </template>
-
 <script>
 import Header from "./components/Header";
-import Info from "./components/sections/Info";
-import Cases from "./components/sections/Cases";
-import Deaths from "./components/sections/Deaths";
-import Beds from "./components/sections/Beds";
 import Footer from "./components/Footer";
 export default {
   name: "App",
   components: {
     "dash-header": Header,
     "dash-footer": Footer,
-    "cases-section": Cases,
-    "info-section": Info,
-    "deaths-section": Deaths,
-    "beds-section": Beds,
   },
   data() {
     return {
-      version: "1.2.0",
+      version: "1.3",
       date: "",
       time: "",
-      results: [],
-      cities: [],
-      beds: [],
-      vacancies: [],
-      cards: [],
-      cases: [],
     };
   },
   methods: {
-    updateCards(data) {
-      this.cards = [
-        {
-          name: "Casos confirmados",
-          color: "#f49e39",
-          values: [],
-        },
-        {
-          name: "Óbitos",
-          color: "#3597db",
-          values: [],
-        },
-      ];
-
-      this.cards[0].values.push({
-        description: "Casos confirmados",
-        value: data.stats.confirmedCases | 0,
-      });
-
-      this.cards[0].values.push({
-        description: "Novos casos",
-        value: data.stats.newCases | 0,
-      });
-
-      this.cards[0].values.push({
-        description: "Casos recuperados",
-        value: data.stats.recoveredCases | 0,
-      });
-
-      this.cards[0].values.push({
-        description: "Casos notificados",
-        value: data.stats.totalCases | 0,
-      });
-
-      this.cards[0].values.push({
-        description: "Casos suspeitos",
-        value: data.stats.suspiciousCases | 0,
-      });
-
-      this.cards[0].values.push({
-        description: "Casos descartados",
-        value: data.stats.discardedCases | 0,
-      });
-
-      this.cards[1].values.push({
-        description: "Óbitos",
-        value: data.stats.deaths | 0,
-      });
-
-      this.cards[1].values.push({
-        description: "Novos óbitos",
-        value: data.stats.newDeaths | 0,
-      });
-
-      this.cards[1].values.push({
-        description: "Letalidade",
-        percentage: true,
-        value: data.stats.letality,
-      });
-
-      this.cards[1].values.push({
-        description: "Mortalidade",
-        text: true,
-        value: data.stats.mortality,
-      });
+    async fetchStats() {
+      await this.axios
+        .get("https://api.kevinws.com/stats/")
+        .then((response) => {
+          this.time = response.data.time;
+          this.date = response.data.date;
+        });
     },
   },
   mounted() {
-    this.axios.get("https://api.kevinws.com/stats/").then((response) => {
-      this.results = response.data;
-      this.cities = this.results.cities;
-      this.date = this.results.date;
-      this.beds = this.results.beds;
-      this.time = this.results.time;
-      this.vacancies = this.results.vacancies;
-      this.updateCards(this.results);
-    });
-    console.log(this.vacancies);
+    this.fetchStats();
   },
 };
 </script>
-
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 html {
