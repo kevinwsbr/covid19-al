@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .map-section {
   .card-body {
     padding: 0;
@@ -32,7 +32,7 @@ export default {
   .map-alert {
     height: 400px;
     color: #fff;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(26, 97, 156, 0.4);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     z-index: 5;
