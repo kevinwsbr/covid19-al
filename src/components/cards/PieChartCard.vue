@@ -7,15 +7,17 @@
         </div>
       </div>
     </template>
-    <b-row class="mx-2">
-      <b-col
-        v-for="item in vacancies"
-        :key="item.datasets[0].title"
-        class="px-5 py-1 my-2 inner-pie-card"
-        cols="12"
-        md="4"
-      >
-        <DataPie :chartdata="item" />
+    <b-row class="mx-2 mb-4">
+      <b-col v-if="total" class="py-1 my-2 inner-pie-card" cols="12" md="4">
+        <DataPie :chartdata="total" />
+      </b-col>
+
+      <b-col v-if="separated" class="bar-container">
+        <div class="w-100">
+          <b-row v-for="item in separated" :key="item.title">
+            <b-col><BarChart :chartdata="item"/></b-col>
+          </b-row>
+        </div>
       </b-col>
       <!-- <b-col>
         <b-row v-for="i in 3" :key="i">
@@ -28,18 +30,16 @@
 
 <script>
 import DataPie from "../DataPie";
-//import BarChart from "../BarChart";
+import BarChart from "../BarChart";
 
 export default {
   name: "PieChartCard",
-  props: ["vacancies"],
+  props: ["total", "separated"],
   components: {
     DataPie,
-   // BarChart,
+    BarChart,
   },
-
   mounted() {
-    console.log(this.vacancies);
     //await this.updateVacancies();
     //const response = await fetch("./res.json");
   },
@@ -154,14 +154,37 @@ h2 {
   background: #fff;
   border: 1px solid #dbe9f5;
 }
-@media screen and (max-width: 420px) {
+
+@media screen and (max-width: 1024px) {
   .inner-pie-card {
-    padding: 0 6rem !important;
+    padding: 0 1.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .inner-pie-card {
+    padding: 0 2rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .card-body {
     max-height: 400px;
   }
+}
+
+@media screen and (min-width: 1024px) {
+  .inner-pie-card {
+    padding: 0 3.5rem;
+  }
+}
+
+.bar-container {
+  display: flex;
+  align-items: center;
+}
+
+.row:nth-of-type(n + 2) > div >>> h3 {
+  margin-top: 1rem;
 }
 </style>

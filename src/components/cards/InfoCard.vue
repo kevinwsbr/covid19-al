@@ -1,17 +1,35 @@
 <template>
-  <b-card>
+  <b-card v-if="data">
     <div class="title">
-      <small>{{ data.title }}</small>
+      <span :style="{ color: data.color }">{{ data.name }}</span>
     </div>
-    <div v-if="!data" class="placeholder wave">
+    <!-- <div v-if="!data" class="placeholder wave">
       <div class="line"></div>
       <div class="line"></div>
-    </div>
-    <div v-if="data" class="value" :style="{ '--cardColor': data.color }">
-      <span>{{ data.value }}</span>
-    </div>
-  </b-card>
-</template>
+    </div> -->
+    <b-row>
+      <b-col
+        cols="6"
+        lg="4"
+        v-for="item in data.values"
+        v-bind:key="item.description"
+      >
+        <div class="value">
+          <span v-if="!item.percentage && !item.text">{{
+            item.value | number("0,0", { thousandsSeparator: "." })
+          }}</span>
+          <span v-if="item.percentage">{{
+            item.value + "%"
+          }}</span>
+          <span v-if="item.text">{{
+            item.value
+          }}</span>
+          <small>{{ item.description }}</small>
+        </div>
+      </b-col>
+    </b-row>
+  </b-card> </template
+>
 
 <script>
 export default {
@@ -22,20 +40,29 @@ export default {
 </script>
 <style lang="scss" scoped>
 .value {
-  margin-right: 12px;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
-  letter-spacing: -0.5px;
-  color: var(--cardColor);
+  margin-top: 1rem;
+  span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    color: #242a2f;
+  }
+  small {
+    font-weight: 600;
+    color: #73777d;
+    letter-spacing: -0.5px;
+  }
 }
+
 .title {
-  margin-bottom: -5px;
-}
-.title > small {
-  font-weight: 600;
-  letter-spacing: 0.01rem;
-  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  span {
+    font-weight: 800;
+    letter-spacing: -0.02rem;
+    text-transform: uppercase;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
