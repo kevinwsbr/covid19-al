@@ -2,7 +2,7 @@
   <div id="app">
     <b-navbar id="nav" sticky class="menu" type="dark">
       <b-container>
-        <b-navbar-brand href="#">
+        <b-navbar-brand href="/">
           <img
             draggable="false"
             alt="Brasão do Estado de Alagoas"
@@ -10,14 +10,13 @@
           />
           <span><b>COVID-19</b> Alagoas</span>
         </b-navbar-brand>
-
         <b-navbar-nav class="ml-auto">
-          <b-nav-item active href="#"
+          <b-nav-item href="#"
             ><router-link to="/">Painel Geral</router-link></b-nav-item
           >
-          <b-nav-item href="#"
-            ><router-link to="/">Gastos</router-link></b-nav-item
-          >
+          <!-- <b-nav-item href="#"
+            ><router-link to="/despesas">Despesas</router-link></b-nav-item
+          > -->
           <b-nav-item href="#"
             ><router-link to="/sobre">Sobre</router-link></b-nav-item
           >
@@ -90,6 +89,16 @@ body {
     letter-spacing: -0.05rem;
   }
 
+  #nav {
+    a {
+      //color: #fff;
+      color: #1a629d;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
   @media screen and (max-width: 576px) {
     .menu {
       padding: 0;
@@ -104,20 +113,20 @@ body {
   }
 
   .menu {
-    background: #1a629d;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border: 1px solid rgba(28, 28, 28, 0.07);
-
-    .active {
-      font-weight: 800;
-      color: white;
-    }
+    box-shadow: 0 4px 6px 0 rgba(31, 70, 88, 0.04);
+    background: #fff;
+    border: 1px solid #dbe9f5;
 
     img {
       max-height: 2rem;
       float: left;
       margin-right: 0.4em;
+    }
+
+    .router-link-exact-active {
+      font-weight: 800;
     }
   }
 
@@ -202,6 +211,17 @@ body {
   @media screen and (max-width: 576px) {
     .mb-4 {
       margin-bottom: 1rem !important;
+    }
+    .menu {
+      padding: 0.5rem 0;
+    }
+    #nav {
+      span {
+        font-size: 0.95rem;
+      }
+      ul {
+        font-size: 0.85rem;
+      }
     }
   }
 

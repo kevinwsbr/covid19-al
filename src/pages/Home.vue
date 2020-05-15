@@ -124,7 +124,6 @@ export default {
   },
   mounted() {
     this.fetchData();
-    console.log(this.fetchedData);
   },
 };
 </script>
