@@ -11,6 +11,12 @@ const routes = [
     component: Home
   },
   {
+    path: "/despesas",
+    name: "Despesas",
+    component: () =>
+      import("../pages/Expenses")
+  },
+  {
     path: "/sobre",
     name: "Sobre",
     component: () =>
