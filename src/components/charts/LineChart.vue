@@ -79,6 +79,7 @@ export default {
   computed: {
     currentDataset() {
       let datasets = [];
+
       if (this.type === "confirmedCases") {
         datasets.push({
           label: "Confirmados",

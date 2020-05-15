@@ -8,7 +8,7 @@
           </div>
         </div>
       </template>
-      <b-table sticky-header :fields="fields" :items="cities"></b-table>
+      <b-table sticky-header :fields="tableFields" :items="cities"></b-table>
       <div v-if="!cities.length" class="loader-container">
         <div v-for="i in 9" :key="i" class="placeholder d-flex wave">
           <div class="line"></div>
@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "TableCard",
-  props: ["cities"],
+  props: ["cities", "tableType"],
   data() {
     return {
       filteredCities: [],
@@ -50,6 +50,52 @@ export default {
       ],
     };
   },
+  computed: {
+    tableFields() {
+      if (this.tableType === "deaths") {
+        return [
+          {
+            key: "name",
+            label: "",
+            formatter: "formatName",
+          },
+          {
+            key: "deaths",
+            label: "Óbitos",
+          },
+          {
+            key: "letality",
+            label: "Letalidade",
+            formatter: "addPercentage",
+          },
+          {
+            key: "mortality",
+            label: "Mortalidade",
+          },
+        ];
+      } else {
+        return [
+          {
+            key: "name",
+            label: "",
+            formatter: "formatName",
+          },
+          {
+            key: "confirmedCases",
+            label: "Confirmados",
+          },
+          {
+            key: "deaths",
+            label: "Óbitos",
+          },
+          {
+            key: "incidence",
+            label: "Incidência",
+          },
+        ];
+      }
+    },
+  },
   methods: {
     formatName(text) {
       text = text
@@ -63,7 +109,9 @@ export default {
       return text + "%";
     },
   },
-  mounted() {},
+  mounted() {
+      console.log(this.cities);
+  },
 };
 </script>
 
