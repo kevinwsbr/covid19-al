@@ -4,12 +4,16 @@
       <template v-slot:header>
         <div class="d-flex justify-content-between">
           <div class="my-auto w-100">
-            <h2 class=" mb-0">Casos por município</h2>
+            <h2 class=" mb-0">{{ title }} por município</h2>
           </div>
         </div>
       </template>
-      <b-table sticky-header :fields="tableFields" :items="cities"></b-table>
-      <div v-if="!cities.length" class="loader-container">
+      <b-table
+        sticky-header
+        :fields="tableFields"
+        :items="filteredCities"
+      ></b-table>
+      <div v-if="!filteredCities.length" class="loader-container">
         <div v-for="i in 9" :key="i" class="placeholder d-flex wave">
           <div class="line"></div>
           <div class="line"></div>
@@ -27,7 +31,6 @@ export default {
   props: ["cities", "tableType"],
   data() {
     return {
-      filteredCities: [],
       fields: [
         {
           key: "name",
@@ -51,6 +54,16 @@ export default {
     };
   },
   computed: {
+    title() {
+      return this.tableType === "deaths" ? "Óbitos" : "Casos";
+    },
+    filteredCities() {
+      if (this.tableType === "deaths") {
+        return this.cities.filter((el) => el.deaths > 0);
+      } else {
+        return this.cities.filter((el) => el.confirmedCases > 0);
+      }
+    },
     tableFields() {
       if (this.tableType === "deaths") {
         return [
@@ -109,8 +122,7 @@ export default {
       return text + "%";
     },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 
