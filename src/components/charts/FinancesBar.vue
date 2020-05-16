@@ -1,7 +1,7 @@
 <script>
-import { Pie } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 export default {
-  extends: Pie,
+  extends: Bar,
   props: {
     chartdata: {
       type: Object,
@@ -14,7 +14,6 @@ export default {
   },
   mounted() {
     this.renderChart(this.chartdata, this.options);
-    console.log(this.chartdata, this.options)
   },
 };
 </script>

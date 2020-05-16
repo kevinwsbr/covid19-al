@@ -3,27 +3,27 @@
     <b-card header-tag="header">
       <template v-slot:header>
         <div class="title-container my-auto">
-          <h2 class="mb-0">Despesas com COVID-19</h2>
+          <h2 class="mb-0">Despesas por órgão</h2>
         </div>
       </template>
       <div>
-        <finances-chart
+        <finances-bar
           v-if="loaded"
           :chartdata="chartData"
           :options="options"
-        ></finances-chart>
+        ></finances-bar>
       </div>
     </b-card>
   </section>
 </template>
 
 <script>
-import FinancesPie from "../charts/FinancesPie";
+import FinancesBar from "../charts/FinancesBar";
 
 export default {
-  name: "ExpensesCard",
+  name: "ExpensesBarCard",
   components: {
-    "finances-chart": FinancesPie,
+    "finances-bar": FinancesBar,
   },
   data() {
     return {
@@ -31,38 +31,7 @@ export default {
       expenses: [],
       categories: [],
       chartData: [],
-      colors: [
-        "#ff9800",
-        "#607d8b",
-        "#009688",
-        "#e91e63",
-        "#2196f3",
-        "#cddc39",
-        "#9c27b0",
-        "#4caf50",
-        "#5c6bc0",
-      ],
       options: {
-        tooltips: {
-          callbacks: {
-            title: function(tooltipItem, data) {
-              return data["labels"][tooltipItem[0]["index"]];
-            },
-            label: function(tooltipItem, data) {
-              const formatter = new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-                minimumFractionDigits: 2,
-              });
-              return formatter.format(
-                data["datasets"][0]["data"][tooltipItem["index"]]
-              );
-            },
-          },
-          titleFontSize: 12,
-          bodyFontSize: 11,
-          displayColors: false,
-        },
         responsive: true,
         maintainAspectRatio: false,
         legend: {
@@ -73,6 +42,49 @@ export default {
           labels: {
             usePointStyle: true,
             boxWidth: 9,
+          },
+          scales: {
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Novos registros",
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontStyle: "600",
+                },
+                gridLines: {
+                  display: true,
+                  color: "#f1f3f6",
+                },
+                ticks: {
+                  fontColor: "#8d8e90",
+                  fontSize: 11,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                offset: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: "Data de notificação",
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontStyle: "600",
+                },
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 0,
+                  minRotation: 0,
+                  fontColor: "red",
+                  fontSize: 11,
+                },
+                type: "time",
+                gridLines: {
+                  display: true,
+                  color: "#f1f3f6",
+                },
+              },
+            ],
           },
         },
       },
@@ -94,16 +106,8 @@ export default {
     },
     extractCategories(data) {
       this.categories = data
-        .map((el) => el.descricao_natureza6)
+        .map((el) => el.orgao_descricao)
         .filter((el, index, self) => self.indexOf(el) === index);
-    },
-    formatName(text) {
-      text = text
-        .toLowerCase()
-        .split(" ")
-        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-        .join(" ");
-      return text;
     },
     fetchExpenses() {
       if (this.categories) {
@@ -113,21 +117,25 @@ export default {
         this.categories.forEach((el) => {
           total = 0;
           this.expenses.rows.forEach((element) => {
-            if (element.descricao_natureza6 == el) {
+            if (element.orgao_descricao == el) {
               total += parseFloat(
                 element.total_empenhado.replace(/\./g, "").replace(/,/g, ".")
               );
             }
           });
-          labels.push(this.formatName(el));
+          labels.push(el);
           values.push(total.toFixed(2));
         });
         this.chartData = {
           labels: labels,
           datasets: [
             {
+              label: "kk eae",
+              barPercentage: 0.5,
+              barThickness: 6,
+              maxBarThickness: 8,
+              minBarLength: 2,
               data: values,
-              backgroundColor: this.colors,
             },
           ],
         };
