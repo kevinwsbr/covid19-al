@@ -79,7 +79,7 @@ export default {
     generateLegends(type) {
       var grades = [];
       if (type === "confirmedCases") {
-        grades = [1, 5, 25, 50, 1000];
+        grades = [1, 5, 25, 50, 100];
       } else {
         grades = [1, 5, 10];
       }
