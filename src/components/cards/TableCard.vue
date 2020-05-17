@@ -14,12 +14,18 @@
         :items="filteredCities"
       ></b-table>
       <div v-if="!filteredCities.length" class="loader-container">
-        <div v-for="i in 9" :key="i" class="placeholder d-flex wave">
+        <div v-for="i in 10" :key="i" class="placeholder d-flex wave">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
+      </div>
+      <div class="observations">
+        <span
+          >* Números atualizados pelas secretarias municipais após a divulgação
+          do boletim epidemiológico estadual.</span
+        >
       </div>
     </b-card>
   </section>
@@ -70,7 +76,7 @@ export default {
           {
             key: "name",
             label: "",
-            formatter: "formatName",
+            formatter: "addObservations",
           },
           {
             key: "deaths",
@@ -91,7 +97,7 @@ export default {
           {
             key: "name",
             label: "",
-            formatter: "formatName",
+            formatter: "addObservations",
           },
           {
             key: "confirmedCases",
@@ -110,6 +116,11 @@ export default {
     },
   },
   methods: {
+    addObservations(text, key, item) {
+      return item.font === "city"
+        ? this.formatName(text) + "*"
+        : this.formatName(text);
+    },
     formatName(text) {
       text = text
         .toLowerCase()
@@ -133,9 +144,19 @@ export default {
     height: 405px;
   }
 
+  .observations {
+    span {
+      display: block;
+      font-size: 0.65rem;
+      padding: 0.5rem;
+      line-height: 12px;
+      text-align: center;
+    }
+  }
+
   .b-table-sticky-header {
     overflow-y: auto;
-    max-height: 395px !important;
+    max-height: 365px !important;
     margin-bottom: 0 !important;
   }
 
