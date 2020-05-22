@@ -3,7 +3,7 @@
     <b-card header-tag="header">
       <template v-slot:header>
         <div class="title-container my-auto">
-          <h2 class="mb-0">Despesas por órgão</h2>
+          <h2 class="mb-0">Despesas totais</h2>
         </div>
       </template>
       <div>
