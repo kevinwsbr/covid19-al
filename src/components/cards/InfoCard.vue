@@ -1,12 +1,16 @@
 <template>
-  <b-card v-if="data">
+  <b-card>
     <div class="title">
       <span :style="{ color: data.color }">{{ data.name }}</span>
     </div>
-    <!-- <div v-if="!data" class="placeholder wave">
-      <div class="line"></div>
-      <div class="line"></div>
-    </div> -->
+    <b-row v-if="!data.values.length">
+      <b-col cols="6" lg="4" v-for="i in 6" v-bind:key="i">
+        <div v-if="1" class="placeholder wave">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </b-col>
+    </b-row>
     <b-row>
       <b-col
         cols="6"
@@ -18,18 +22,14 @@
           <span v-if="!item.percentage && !item.text">{{
             item.value | number("0,0", { thousandsSeparator: "." })
           }}</span>
-          <span v-if="item.percentage">{{
-            item.value + "%"
-          }}</span>
-          <span v-if="item.text">{{
-            item.value
-          }}</span>
+          <span v-if="item.percentage">{{ item.value + "%" }}</span>
+          <span v-if="item.text">{{ item.value }}</span>
           <small>{{ item.description }}</small>
         </div>
       </b-col>
     </b-row>
-  </b-card> </template
->
+  </b-card>
+</template>
 
 <script>
 export default {
@@ -95,14 +95,15 @@ h2 {
 }
 
 .placeholder .line {
-  margin-top: 5px;
-  height: 16px;
+  margin-top: 15px;
+  height: 25px;
+  width: 60%;
 }
 
 .placeholder .line:nth-child(2) {
-  margin-top: 10px;
-  height: 40px;
-  width: 50%;
+  margin-top: 5px;
+  width: 100%;
+  height: 10px;
 }
 
 .placeholder.wave div {
