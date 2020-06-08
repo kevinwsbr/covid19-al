@@ -1,4 +1,4 @@
-# covid19-al
+# Painel COVID-19 Alagoas
 
 ## Project setup
 ```
