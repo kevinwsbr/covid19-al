@@ -55,23 +55,21 @@ export default {
   methods: {
     getColor(d, t) {
       if (t === "confirmedCases") {
-        return d > 3000
+        return d > 10000
           ? "#513413"
-          : d > 150
+          : d > 2500
           ? "#ab6f28"
-          : d > 50
+          : d > 250
           ? "#dc8e33"
           : d > 25
           ? "#f49e39"
-          : d > 5
+          : d > 1
           ? "#f7bb74"
-          : d >= 1
-          ? "#fbd8b0"
           : "#fdf1e3"; //fdebd7
       } else {
-        return d > 100
+        return d > 500
           ? "#225f88"
-          : d > 10
+          : d > 50
           ? "#3188c3"
           : d > 5
           ? "#5eace1"
@@ -83,9 +81,9 @@ export default {
     generateLegends(type) {
       var grades = [];
       if (type === "confirmedCases") {
-        grades = [1, 5, 25, 50, 150, 3000];
+        grades = [1, 25, 250, 2500, 10000];
       } else {
-        grades = [1, 5, 10, 100];
+        grades = [1, 5, 50, 500];
       }
       var div = this.$refs["chart-legend"];
 
