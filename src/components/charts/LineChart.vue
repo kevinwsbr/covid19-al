@@ -5,6 +5,7 @@ export default {
   extends: Line,
   props: ["type"],
   data: () => ({
+    chartValues: [],
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -82,7 +83,7 @@ export default {
 
       if (this.type === "confirmedCases") {
         datasets.push({
-          label: "Confirmados",
+          label: "Casos acumulados",
           data: [],
           borderColor: "#f49e39",
           borderWidth: 2.5,
@@ -95,7 +96,7 @@ export default {
         });
       } else if (this.type === "deaths") {
         datasets.push({
-          label: "Óbitos",
+          label: "Óbitos acumulados",
           data: [],
           borderColor: "#3597db",
           borderWidth: 2.5,
@@ -112,59 +113,49 @@ export default {
   },
 
   methods: {
-    readFile() {
-      let vm = this;
+    async fetchData() {
+      await this.axios
+        .get("http://localhost:3000/stats/charts")
+        .then((response) => {
+          this.chartValues = response.data;
+        });
+    },
+    async populateChart() {
+      let dates = [];
+      let confirmed = [];
+      let deaths = [];
 
-      this.$papa.parse("./state.csv", {
-        download: true,
-        complete: function(results) {
-          let dates = [];
-          let deaths = [];
-          let confirmed = [];
-          let flag = false;
-
-          if (vm.type === "confirmedCases") {
-            results.data.forEach((el) => {
-              if (el[1] === "AL") {
-                if (el[4] != 0 || el[6] != 0) {
-                  flag = true;
-                }
-                if (flag) {
-                  dates.push(el[2]);
-                  confirmed.push(el[4]);
-                }
-              }
-            });
-
-            vm.currentDataset[0].data = confirmed;
-          } else if (vm.type == "deaths") {
-            results.data.forEach((el) => {
-              if (el[1] === "AL") {
-                if (el[3] != 0 || el[5] != 0) {
-                  flag = true;
-                }
-                if (flag) {
-                  dates.push(el[2]);
-                  deaths.push(el[6]);
-                }
-              }
-            });
-
-            vm.currentDataset[0].data = deaths;
+      await this.fetchData();
+      if (this.type === "confirmedCases") {
+        this.chartValues.forEach((day) => {
+          if (day.totalCases > 0) {
+            dates.push(day.date);
+            confirmed.push(day.totalCases);
           }
+        });
 
-          let chartdata = {
-            labels: dates,
-            datasets: vm.currentDataset,
-          };
-          vm.renderChart(chartdata, vm.options);
-        },
-      });
+        this.currentDataset[0].data = confirmed;
+      } else if (this.type == "deaths") {
+        this.chartValues.forEach((day) => {
+          if (day.totalDeaths > 0) {
+            dates.push(day.date);
+            deaths.push(day.totalDeaths);
+          }
+        });
+
+        this.currentDataset[0].data = deaths;
+      }
+
+      let chartdata = {
+        labels: dates,
+        datasets: this.currentDataset,
+      };
+      this.renderChart(chartdata, this.options);
     },
   },
 
-  mounted() {
-    this.readFile();
+  async mounted() {
+    await this.populateChart();
   },
 };
 </script>
