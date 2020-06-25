@@ -101,7 +101,7 @@ export default {
   methods: {
     async fetchData() {
       await this.axios
-        .get("http://localhost:3000/stats/charts")
+        .get("https://api.kevinws.com/stats/charts")
         .then((response) => {
           this.chartValues = response.data;
         });
