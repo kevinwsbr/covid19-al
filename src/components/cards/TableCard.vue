@@ -10,6 +10,7 @@
       </template>
       <b-table
         sticky-header
+        :sort-by.sync="sortBy"
         :fields="tableFields"
         :items="filteredCities"
       ></b-table>
@@ -37,6 +38,7 @@ export default {
   props: ["cities", "tableType"],
   data() {
     return {
+      sortBy: "name",
       fields: [
         {
           key: "name",
