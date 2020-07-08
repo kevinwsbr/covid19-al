@@ -14,7 +14,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col class="mb-3">
+      <b-col class="mb-4">
         <b-card class="chart-card" header-tag="header">
           <template v-slot:header>
             <div class="d-flex justify-content-between">
@@ -26,7 +26,7 @@
           <deaths-bar-chart type="deaths" />
         </b-card>
       </b-col>
-      <b-col class="mb-3">
+      <b-col class="mb-4">
         <b-card class="chart-card" header-tag="header">
           <template v-slot:header>
             <div class="d-flex justify-content-between">
@@ -39,6 +39,32 @@
         </b-card>
       </b-col>
     </b-row>
+    <b-row>
+      <b-col class="mb-4" cols="12" md="7">
+        <b-card class="chart-card" header-tag="header">
+          <template v-slot:header>
+            <div class="d-flex justify-content-between">
+              <div class="my-auto w-100">
+                <h2 class=" mb-0">Comorbidades registradas</h2>
+              </div>
+            </div>
+          </template>
+          <deaths-comorbities-bar />
+        </b-card>
+      </b-col>
+      <b-col class="mb-4" cols="12" md="5">
+        <b-card class="chart-card" header-tag="header">
+          <template v-slot:header>
+            <div class="d-flex justify-content-between">
+              <div class="my-auto w-100">
+                <h2 class=" mb-0">Idade por gênero</h2>
+              </div>
+            </div>
+          </template>
+          <deaths-pyramid-bar />
+        </b-card>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -47,6 +73,8 @@ import MapCard from "../cards/MapCard";
 import TableCard from "../cards/TableCard";
 import LineChart from "../charts/LineChart";
 import BarChart from "../charts/BarChart";
+import ComorbitiesBar from "../charts/ComorbitiesBar";
+import PyramidBar from "../charts/PyramidBar";
 
 export default {
   name: "Deaths",
@@ -56,6 +84,8 @@ export default {
     "deaths-table": TableCard,
     "deaths-bar-chart": BarChart,
     "deaths-line-chart": LineChart,
+    "deaths-comorbities-bar": ComorbitiesBar,
+    "deaths-pyramid-bar": PyramidBar,
   },
 };
 </script>
