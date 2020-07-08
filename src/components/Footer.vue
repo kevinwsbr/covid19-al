@@ -4,8 +4,7 @@
       <b-col class="text-center">
         <span class="d-block">
           Painel desenvolvido por
-          <a href="https://kevinws.com">Kevin Washington</a>
-          , v{{ version }}
+          <a href="https://kevinws.com">Kevin Washington</a>, v{{ version }}
         </span>
       </b-col>
     </b-row>
