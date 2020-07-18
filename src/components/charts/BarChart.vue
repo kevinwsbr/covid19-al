@@ -87,14 +87,28 @@ export default {
           label: "Novos casos",
           data: [],
           backgroundColor: "#f49e39",
+          order: 2,
         });
       } else if (this.type === "deaths") {
         datasets.push({
           label: "Novos óbitos",
           data: [],
           backgroundColor: "#3597db",
+          order: 2,
         });
       }
+      datasets.push({
+        label: "Média móvel",
+        data: [],
+        fill: false,
+        borderColor: this.type === "deaths" ? "#000" : "#f49e39",
+        backgroundColor: this.type === "deaths" ? "#000" : "#f49e39",
+        radius: 0,
+        borderWidth: 3,
+        order: 1,
+        // Changes this dataset to become a line
+        type: "line",
+      });
       return datasets;
     },
   },
@@ -132,11 +146,49 @@ export default {
         this.currentDataset[0].data = deaths;
       }
 
+      this.calcmob(this.currentDataset[0].data);
+
       let chartdata = {
         labels: dates,
         datasets: this.currentDataset,
       };
+
       this.renderChart(chartdata, this.options);
+    },
+    movingAvg(array, count) {
+      // calculate average for subarray
+      var avg = function(array) {
+        var sum = 0,
+          count = 0,
+          val;
+        for (var i in array) {
+          val = array[i];
+          sum += val;
+          count++;
+        }
+
+        return sum / count;
+      };
+
+      var result = [],
+        val;
+
+      // pad beginning of result with null values
+      for (var i = 0; i < count - 1; i++) result.push(null);
+
+      // calculate average for each subarray and add to result
+      for (let i = 0, len = array.length - count; i <= len; i++) {
+        val = avg(array.slice(i, i + count));
+        if (isNaN(val)) result.push(null);
+        else result.push(val);
+      }
+
+      return result;
+    },
+    async calcmob(data) {
+      let t = [...data];
+      console.log(this.movingAvg(t, 7));
+      this.currentDataset[1].data = this.movingAvg(t, 7);
     },
   },
 
