@@ -139,7 +139,7 @@ export default {
         this.chartValues.forEach((day) => {
           if (day.totalDeaths > 0) {
             dates.push(day.date);
-            deaths.push(day.newCases);
+            deaths.push(day.newDeaths);
           }
         });
 
