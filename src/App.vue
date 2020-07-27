@@ -41,7 +41,7 @@ export default {
   },
   data() {
     return {
-      version: "1.4",
+      version: "1.5",
       date: "",
       time: "",
     };
