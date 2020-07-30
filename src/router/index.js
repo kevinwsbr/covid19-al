@@ -10,12 +10,6 @@ const routes = [
     name: "Home",
     component: Home
   },
-  /* {
-    path: "/despesas",
-    name: "Despesas",
-    component: () =>
-      import("../pages/Expenses")
-  }, */
   {
     path: "/sobre",
     name: "Sobre",

@@ -14,9 +14,6 @@
           <b-nav-item href="#"
             ><router-link to="/">Painel Geral</router-link></b-nav-item
           >
-          <!-- <b-nav-item href="#"
-            ><router-link to="/despesas">Despesas</router-link></b-nav-item
-          > -->
           <b-nav-item href="#"
             ><router-link to="/sobre">Sobre</router-link></b-nav-item
           >
