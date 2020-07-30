@@ -115,8 +115,6 @@
         Secretaria Estadual de Saúde de Alagoas, Secretarias Municipais de Saúde
         e Ministério da Saúde.
       </p>
-      <h4>Dados financeiros</h4>
-      <p>Controladoria Geral do Estado de Alagoas</p>
     </b-card>
   </section>
 </template>
