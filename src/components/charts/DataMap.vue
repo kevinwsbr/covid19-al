@@ -55,45 +55,39 @@ export default {
   methods: {
     getColor(d, t) {
       if (t === "confirmedCases") {
-        return d > 10000
-          ? "#513413"
+        return d > 20000
+          ? "#664218"
           : d > 2500
-          ? "#ab6f28"
+          ? "#9f6725"
           : d > 250
-          ? "#dc8e33"
+          ? "#d88c32"
           : d > 25
-          ? "#f49e39"
+          ? "#f5a84d"
           : d > 1
-          ? "#f7bb74"
-          : "#fdf1e3"; //fdebd7
+          ? "#fbd8b0"
+          : "#ffffff"; //fdebd7
       } else {
         return d > 500
-          ? "#225f88"
+          ? "#194868"
           : d > 50
-          ? "#3188c3"
+          ? "#2c7db5"
           : d > 5
-          ? "#5eace1"
+          ? "#51a6e0"
           : d >= 1
-          ? "#86c1e8"
-          : "#afd5f0";
+          ? "#8ac3ea"
+          : "#aed5f1";
       }
     },
     generateLegends(type) {
       var grades = [];
       if (type === "confirmedCases") {
-        grades = [1, 25, 250, 2500, 10000];
+        grades = [1, 25, 250, 2500, 20000];
       } else {
         grades = [1, 5, 50, 500];
       }
       var div = this.$refs["chart-legend"];
 
       div.innerHTML = "";
-
-      div.innerHTML +=
-        '<div><i style="background:' +
-        this.getColor(0, type) +
-        '"></i> ' +
-        "0<br></div>";
 
       for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
