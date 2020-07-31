@@ -86,12 +86,11 @@ export default {
           label: "Casos acumulados",
           data: [],
           borderColor: "#f49e39",
-          borderWidth: 2.5,
           backgroundColor: "rgba(244, 158, 57, .5)",
           fill: true,
-          pointStyle: "circle",
+          borderWidth: 4,
+          pointRadius: 0,
           pointBorderColor: "#f49e39",
-          pointRadius: 2,
           pointBackgroundColor: "#f49e39",
         });
       } else if (this.type === "deaths") {
@@ -99,12 +98,12 @@ export default {
           label: "Óbitos acumulados",
           data: [],
           borderColor: "#3597db",
-          borderWidth: 2.5,
           backgroundColor: "rgba(53, 151, 219, .5)",
           fill: true,
           pointStyle: "circle",
           pointBorderColor: "#3597db",
-          pointRadius: 2,
+          borderWidth: 4,
+          pointRadius: 0,
           pointBackgroundColor: "#3597db",
         });
       }
