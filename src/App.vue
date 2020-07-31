@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      version: "1.5",
+      version: "1.6",
       date: "",
       time: "",
     };
