@@ -27,6 +27,15 @@ export default {
               .join("/")
               .replace("/2020", "");
           },
+          label: function(tooltipItem, data) {
+            let label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+            if (label) {
+              label += ": ";
+            }
+            label += tooltipItem.yLabel.toFixed(2).replace(/\.0+$/,'');
+            return label;
+          },
         },
       },
       scales: {
