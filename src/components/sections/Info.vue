@@ -53,20 +53,31 @@ export default {
       padding: 0;
     }
     [class*="col-"] {
-      padding: 1rem;
+      padding: 1.25rem;
+    }
+    .row {
+      div:last-of-type {
+        span {
+          margin-bottom: 8px;
+        }
+      }
+      div:not(:last-of-type) {
+        span {
+          margin-top: 8px;
+        }
+      }
     }
     span {
       display: block;
       font-size: 1.6rem;
       font-weight: 700;
       line-height: 15px;
-      margin-top: 8px;
       letter-spacing: 0.5px;
-      color: rgb(255 255 255 / .95);
+      color: rgb(255 255 255 / 0.95);
     }
     small {
       font-weight: 600;
-      color: rgb(255 255 255 / .85);
+      color: rgb(255 255 255 / 0.85);
       letter-spacing: -0.2px;
     }
     .status {
