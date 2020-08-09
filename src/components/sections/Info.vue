@@ -51,12 +51,17 @@ export default {
 <style lang="scss" scoped>
 .resume-card {
   .card {
-    background: #28a745;
+    background: #3497db;
     .card-body {
       padding: 0;
     }
     [class*="col-"] {
-      padding: 1.25rem;
+      @media screen and (max-width: 767px) {
+        padding: .7rem 1rem;
+      }
+      @media screen and (min-width: 768px) {
+        padding: 1.25rem;
+      }
     }
     .row {
       div:last-of-type {
