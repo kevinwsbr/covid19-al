@@ -4,20 +4,20 @@
       <b-col>
         <b-card>
           <b-row class="no-gutters">
-            <b-col cols="6" lg="4">
+            <b-col cols="12" md="4">
               <span>585.215</span>
               <small>casos recuperados</small>
             </b-col>
-            <b-col cols="6" lg="4">
+            <b-col cols="12" md="4">
               <span>585.215</span>
               <small>casos ativos</small>
             </b-col>
-            <b-col class="status" cols="6" lg="4">
+            <b-col class="status" cols="12" md="4">
               <div class="text">
                 <small>Tendência</small>
                 <span>Queda</span>
               </div>
-              <font-awesome-icon icon="arrow-up" size="3x" />
+              <font-awesome-icon icon="arrow-down" size="3x" />
             </b-col>
           </b-row>
         </b-card>
@@ -61,7 +61,8 @@ export default {
     .row {
       div:last-of-type {
         span {
-          margin-bottom: 8px;
+          margin-bottom: 9px;
+          line-height: 15px;
         }
       }
       div:not(:last-of-type) {
@@ -79,19 +80,25 @@ export default {
       color: rgb(255 255 255 / 0.95);
     }
     small {
-      font-weight: 600;
       color: rgb(255 255 255 / 0.85);
       letter-spacing: -0.2px;
     }
     .status {
-      border-top-right-radius: 1rem;
-      border-bottom-right-radius: 1rem;
+      @media screen and (max-width: 767px) {
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+      @media screen and (min-width: 768px) {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
       background: red;
       display: flex;
       align-items: center;
       justify-content: space-between;
       svg {
         align-self: flex-end;
+        color: rgb(255 255 255 / 0.7);
       }
     }
   }
