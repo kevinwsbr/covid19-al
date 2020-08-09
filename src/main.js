@@ -10,10 +10,10 @@ import router from "./router";
 import Chart from "chart.js"
 import ChartDataLabels from "chartjs-plugin-datalabels"
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEquals } from '@fortawesome/free-solid-svg-icons'
+import { faEquals, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faEquals)
+library.add(faEquals, faArrowDown, faArrowUp)
 Vue.component("l-map", LMap);
 Vue.component("l-tile-layer", LTileLayer);
 Vue.component("l-marker", LMarker);

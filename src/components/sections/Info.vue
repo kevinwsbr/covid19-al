@@ -17,7 +17,7 @@
                 <small>Tendência</small>
                 <span>Queda</span>
               </div>
-              <font-awesome-icon icon="equals" size="4x" />
+              <font-awesome-icon icon="arrow-up" size="3x" />
             </b-col>
           </b-row>
         </b-card>
