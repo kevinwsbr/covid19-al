@@ -12,7 +12,7 @@
               <span>585.215</span>
               <small>casos ativos</small>
             </b-col>
-            <b-col class="status" cols="12" md="4">
+            <b-col class="status red" cols="12" md="4">
               <div class="text">
                 <small>Tendência</small>
                 <span>Queda</span>
@@ -50,14 +50,23 @@ export default {
 
 <style lang="scss" scoped>
 .resume-card {
+  .red {
+    background: #dc3545;
+  }
+  .green {
+    background: #28a745;
+  }
+  .blue {
+    background: #17a2b8;
+  }
   .card {
-    background: #3497db;
+    background: #28a745;
     .card-body {
       padding: 0;
     }
     [class*="col-"] {
       @media screen and (max-width: 767px) {
-        padding: .7rem 1rem;
+        padding: 0.7rem 1rem;
       }
       @media screen and (min-width: 768px) {
         padding: 1.25rem;
@@ -97,7 +106,6 @@ export default {
         border-top-right-radius: 1rem;
         border-bottom-right-radius: 1rem;
       }
-      background: red;
       display: flex;
       align-items: center;
       justify-content: space-between;
