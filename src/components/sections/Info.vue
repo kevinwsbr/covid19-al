@@ -3,7 +3,7 @@
     <b-row class="resume-card mb-4">
       <b-col>
         <b-card>
-          <b-row>
+          <b-row class="no-gutters">
             <b-col cols="6" lg="4">
               <span>585.215</span>
               <small>casos recuperados</small>
@@ -12,7 +12,7 @@
               <span>585.215</span>
               <small>casos ativos</small>
             </b-col>
-            <b-col class="info" cols="6" lg="4">
+            <b-col class="status" cols="6" lg="4">
               <small>Tendência</small>
               <span>Queda</span>
             </b-col>
@@ -49,11 +49,18 @@ export default {
 .resume-card {
   .card {
     background: #28a745;
+    .card-body {
+      padding: 0;
+    }
+    [class*="col-"] {
+      padding: 1rem;
+    }
     span {
       display: block;
       font-size: 1.6rem;
       font-weight: 700;
-      line-height: 12px;
+      line-height: 15px;
+      margin-top: 8px;
       letter-spacing: 0.5px;
       color: rgb(255 255 255 / .95);
     }
@@ -62,7 +69,9 @@ export default {
       color: rgb(255 255 255 / .85);
       letter-spacing: -0.2px;
     }
-    .info {
+    .status {
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
       background: red;
     }
   }
