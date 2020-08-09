@@ -5,13 +5,16 @@
         <b-card>
           <b-row>
             <b-col cols="6" lg="4">
-              teste
+              <span>585.215</span>
+              <small>casos recuperados</small>
             </b-col>
             <b-col cols="6" lg="4">
-              teste
+              <span>585.215</span>
+              <small>casos ativos</small>
             </b-col>
-            <b-col cols="6" lg="4">
-              teste
+            <b-col class="info" cols="6" lg="4">
+              <small>Tendência</small>
+              <span>Queda</span>
             </b-col>
           </b-row>
         </b-card>
@@ -44,5 +47,24 @@ export default {
 
 <style lang="scss" scoped>
 .resume-card {
+  .card {
+    background: #28a745;
+    span {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 12px;
+      letter-spacing: 0.5px;
+      color: rgb(255 255 255 / .95);
+    }
+    small {
+      font-weight: 600;
+      color: rgb(255 255 255 / .85);
+      letter-spacing: -0.2px;
+    }
+    .info {
+      background: red;
+    }
+  }
 }
 </style>
