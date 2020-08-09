@@ -13,8 +13,11 @@
               <small>casos ativos</small>
             </b-col>
             <b-col class="status" cols="6" lg="4">
-              <small>Tendência</small>
-              <span>Queda</span>
+              <div class="text">
+                <small>Tendência</small>
+                <span>Queda</span>
+              </div>
+              <font-awesome-icon icon="equals" size="4x" />
             </b-col>
           </b-row>
         </b-card>
@@ -84,6 +87,12 @@ export default {
       border-top-right-radius: 1rem;
       border-bottom-right-radius: 1rem;
       background: red;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      svg {
+        align-self: flex-end;
+      }
     }
   }
 }

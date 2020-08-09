@@ -9,10 +9,16 @@ import Vue2Filters from "vue2-filters";
 import router from "./router";
 import Chart from "chart.js"
 import ChartDataLabels from "chartjs-plugin-datalabels"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faEquals } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faEquals)
 Vue.component("l-map", LMap);
 Vue.component("l-tile-layer", LTileLayer);
 Vue.component("l-marker", LMarker);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(BootstrapVue);
 Vue.use(VuePapaParse);
