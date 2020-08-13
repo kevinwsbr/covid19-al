@@ -12,7 +12,7 @@
               <span>585.215</span>
               <small>casos ativos</small>
             </b-col>
-            <b-col class="status red" cols="12" md="4">
+            <b-col class="status green" cols="12" md="4">
               <div class="text">
                 <small>Tendência</small>
                 <span>Queda</span>
@@ -51,19 +51,22 @@ export default {
 <style lang="scss" scoped>
 .resume-card {
   .green {
-    span, small {
-      color: #28a745 !important;
+    span, small, svg {
+      color: #28a745;
     }
+    
   }
   .blue {
-    span, small {
-      color: #17a2b8 !important;
+    span, small, svg{
+      color: #17a2b8;
     }
+    
   }
   .red {
-    span, small {
-      color: #dc3545 !important;
+    span, small, svg {
+      color: #dc3545;
     }
+    
   }
   .card {
     .card-body {
@@ -96,11 +99,10 @@ export default {
       font-weight: 700;
       line-height: 15px;
       letter-spacing: 0.5px;
-      color: rgb(255 255 255 / 0.95);
     }
     small {
-      color: rgb(255 255 255 / 0.85);
       letter-spacing: -0.2px;
+      font-weight: 600;
     }
     .status {
       @media screen and (max-width: 767px) {
@@ -116,7 +118,7 @@ export default {
       justify-content: space-between;
       svg {
         align-self: flex-end;
-        color: rgb(255 255 255 / 0.7);
+        //color: rgb(255 255 255 / 0.7);
       }
     }
   }
