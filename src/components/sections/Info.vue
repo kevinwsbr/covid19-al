@@ -4,7 +4,7 @@
       <b-col>
         <b-card>
           <b-row class="no-gutters">
-            <b-col cols="12" md="4">
+            <b-col class="green" cols="12" md="4">
               <span>585.215</span>
               <small>casos recuperados</small>
             </b-col>
@@ -50,17 +50,22 @@ export default {
 
 <style lang="scss" scoped>
 .resume-card {
-  .red {
-    background: #dc3545;
-  }
   .green {
-    background: #28a745;
+    span, small {
+      color: #28a745 !important;
+    }
   }
   .blue {
-    background: #17a2b8;
+    span, small {
+      color: #17a2b8 !important;
+    }
+  }
+  .red {
+    span, small {
+      color: #dc3545 !important;
+    }
   }
   .card {
-    background: #28a745;
     .card-body {
       padding: 0;
     }
