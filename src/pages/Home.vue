@@ -53,7 +53,7 @@ export default {
           values: [],
         },
         {
-          name: "Vacinação",
+          name: "Status da Vacinação",
           color: "#4caf50",
           values: [],
         }
@@ -117,7 +117,7 @@ export default {
         });
 
         cards[2].values.push({
-          description: "Porcentagem da população vacinada",
+          description: "Porcentagem vacinada",
           value: this.fetchedData.stats.percentageVaccinated,
         });
       }

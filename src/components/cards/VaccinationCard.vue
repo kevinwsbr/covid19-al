@@ -4,9 +4,9 @@
       <span :style="{ color: data.color }">{{ data.name }}</span>
     </div>
     <b-row>
-      <b-col cols="12" lg="6">
+      <b-col cols="12" sm="6">
         <div class="value">
-          <div v-if="0" class="placeholder wave">
+          <div v-if="!data.values[0].value" class="placeholder wave">
             <div class="line"></div>
             <div class="line"></div>
           </div>
@@ -14,9 +14,9 @@
           <small>{{ data.values[0].description }}</small>
         </div>
       </b-col>
-      <b-col cols="12" lg="6">
+      <b-col cols="12" sm="6">
         <div class="value">
-          <div v-if="0" class="placeholder wave">
+          <div v-if="!data.values[1].value" class="placeholder wave">
             <div class="line"></div>
             <div class="line"></div>
           </div>
@@ -59,9 +59,9 @@ export default {
   margin-top: 1rem;
   span {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     font-weight: 700;
-    line-height: 12px;
+    line-height: 16px;
     letter-spacing: 0.5px;
     color: #242a2f;
   }
