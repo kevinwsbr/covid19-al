@@ -1,7 +1,12 @@
 <template>
   <div>
     <b-row class="mb-4">
-      <b-col class="mb-3" cols="12" md="6" v-for="card in cards" :key="card.name">
+      <b-col class="mb-2" cols="12">
+        <vac-card :data="cards[2]" />
+      </b-col>
+    </b-row>
+    <b-row class="mb-4">
+      <b-col class="mb-3" cols="12" md="6" v-for="(card, i) in cards" :v-if="i == 0" :key="card.name">
         <info-card :data="card" />
       </b-col>
     </b-row>
@@ -10,11 +15,14 @@
 
 <script>
 import InfoCard from "../cards/InfoCard";
+import VaccinationCard from "../cards/VaccinationCard";
+
 export default {
   name: "Info",
   props: ["cards"],
   components: {
     "info-card": InfoCard,
+    "vac-card": VaccinationCard
   },
 };
 </script>

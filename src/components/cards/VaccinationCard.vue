@@ -1,17 +1,31 @@
 <template>
-    <b-card>
-      <div class="title">
-        <span :style="{ color: data.color }">{{ data.name }}</span>
-      </div>
-      <b-row v-if="!data.values.length">
-        <b-col cols="6" lg="4" v-for="i in 6" v-bind:key="i">
-          <div v-if="1" class="placeholder wave">
+  <b-card>
+    <div class="title">
+      <span :style="{ color: data.color }">{{ data.name }}</span>
+    </div>
+    <b-row>
+      <b-col cols="12" lg="6">
+        <div class="value">
+          <div v-if="0" class="placeholder wave">
             <div class="line"></div>
             <div class="line"></div>
           </div>
-        </b-col>
-      </b-row>
-      <b-row>
+          <span>{{ data.values[0].value | number("0,0", { thousandsSeparator: "." }) }}</span>
+          <small>{{ data.values[0].description }}</small>
+        </div>
+      </b-col>
+      <b-col cols="12" lg="6">
+        <div class="value">
+          <div v-if="0" class="placeholder wave">
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <span>{{ data.values[1].value }}%</span>
+          <small>{{ data.values[1].description }}</small>
+        </div>
+      </b-col>
+    </b-row>
+    <!-- <b-row>
         <b-col
           cols="6"
           lg="4"
@@ -27,15 +41,17 @@
             <small>{{ item.description }}</small>
           </div>
         </b-col>
-      </b-row>
-    </b-card>
+      </b-row> -->
+  </b-card>
 </template>
 
 <script>
 export default {
-  name: "InfoCard",
+  name: "VaccinationCard",
   props: ["data"],
-  mounted: function() {},
+  mounted: function() {
+    console.log(this.data)
+  },
 };
 </script>
 <style lang="scss" scoped>
