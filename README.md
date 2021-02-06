@@ -1,5 +1,8 @@
 # Painel COVID-19 Alagoas
 
+![](https://img.shields.io/github/package-json/v/kevinwsbr/covid19-al)
+![](https://img.shields.io/github/license/kevinwsbr/covid19-al)
+
 ## Project setup
 ```
 npm install
