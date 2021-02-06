@@ -1,49 +1,38 @@
 <template>
   <b-card>
     <div class="title">
-      <span :style="{ color: data.color }">{{ data.name }}</span>
+      <span v-if="data.name" :style="{ color: data.color }">{{
+        data.name
+      }}</span>
     </div>
     <b-row>
       <b-col cols="12" sm="6">
         <div class="value">
-          <div v-if="!data.values[0].value" class="placeholder wave">
+          <div v-if="!data.values[0]" class="placeholder wave">
             <div class="line"></div>
             <div class="line"></div>
           </div>
-          <span>{{
-            data.values[0].value | number("0,0", { thousandsSeparator: "." })
-          }}</span>
-          <small>{{ data.values[0].description }}</small>
+          <div v-else>
+            <span>{{
+              data.values[0].value | number("0,0", { thousandsSeparator: "." })
+            }}</span>
+            <small>{{ data.values[0].description }}</small>
+          </div>
         </div>
       </b-col>
       <b-col cols="12" sm="6">
         <div class="value">
-          <div v-if="!data.values[1].value" class="placeholder wave">
+          <div v-if="!data.values[1]" class="placeholder wave">
             <div class="line"></div>
             <div class="line"></div>
           </div>
-          <span>{{ data.values[1].value }}%</span>
-          <small>{{ data.values[1].description }}</small>
+          <div v-else>
+            <span>{{ data.values[1].value }}%</span>
+            <small>{{ data.values[1].description }}</small>
+          </div>
         </div>
       </b-col>
     </b-row>
-    <!-- <b-row>
-        <b-col
-          cols="6"
-          lg="4"
-          v-for="item in data.values"
-          v-bind:key="item.description"
-        >
-          <div class="value">
-            <span v-if="!item.percentage && !item.text">{{
-              item.value | number("0,0", { thousandsSeparator: "." })
-            }}</span>
-            <span v-if="item.percentage">{{ item.value + "%" }}</span>
-            <span v-if="item.text">{{ item.value }}</span>
-            <small>{{ item.description }}</small>
-          </div>
-        </b-col>
-      </b-row> -->
   </b-card>
 </template>
 
