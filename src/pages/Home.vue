@@ -52,6 +52,11 @@ export default {
           color: "#3597db",
           values: [],
         },
+        {
+          name: "Status da Vacinação",
+          color: "#4caf50",
+          values: [],
+        }
       ];
       if (this.fetchedData.stats) {
         cards[0].values.push({
@@ -104,6 +109,16 @@ export default {
           description: "Mortalidade",
           text: true,
           value: this.fetchedData.stats.mortality,
+        });
+        
+        cards[2].values.push({
+          description: "Alagoanos vacinados",
+          value: this.fetchedData.stats.vaccinated,
+        });
+
+        cards[2].values.push({
+          description: "Porcentagem vacinada",
+          value: this.fetchedData.stats.percentageVaccinated,
         });
       }
 
