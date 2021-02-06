@@ -10,7 +10,9 @@
             <div class="line"></div>
             <div class="line"></div>
           </div>
-          <span>{{ data.values[0].value | number("0,0", { thousandsSeparator: "." }) }}</span>
+          <span>{{
+            data.values[0].value | number("0,0", { thousandsSeparator: "." })
+          }}</span>
           <small>{{ data.values[0].description }}</small>
         </div>
       </b-col>
@@ -49,9 +51,7 @@
 export default {
   name: "VaccinationCard",
   props: ["data"],
-  mounted: function() {
-    console.log(this.data)
-  },
+  mounted: function() {},
 };
 </script>
 <style lang="scss" scoped>

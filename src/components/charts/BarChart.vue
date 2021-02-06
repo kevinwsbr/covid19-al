@@ -196,7 +196,6 @@ export default {
     },
     async calcmob(data) {
       let t = [...data];
-      console.log(this.movingAvg(t, 7));
       this.currentDataset[1].data = this.movingAvg(t, 7);
     },
   },
