@@ -1,24 +1,17 @@
 # Painel COVID-19 Alagoas
 
-## Project setup
+Este é um painel para monitoramento da evolução da COVID-19 em Alagoas desenvolvido em Vue. Nele, constam o acompanhamento da vacinação, casos e óbitos (e demais informações relacionadas) de todos os 102 municípios e ocupação de leitos.
+
+![Screenshot do painel](docs/ss1.png)
+
+Por utilizar uma API própria, atualmente encontra-se **desativado** devido a constante mudança no formato de divulgação das informações por parte da SESAU/AL, inviabilizando assim a manutenção da aplicação.
+
+## Instalação
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Execução
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
